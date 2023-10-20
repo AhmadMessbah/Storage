@@ -1,12 +1,10 @@
 package com.mftplus.storage.controller.api;
 
 import com.mftplus.storage.model.entity.Stuff;
-import com.mftplus.storage.model.entity.StuffUnit;
-import com.mftplus.storage.model.service.GroupService;
+import com.mftplus.storage.model.service.StuffService;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.StreamingOutput;
 
 import javax.inject.Inject;
 
@@ -49,7 +47,6 @@ public class StuffApi {
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll() {
         try {
-            return System.out.println("List:" + stuffService.findAll());
             return Response.ok().entity(stuffService.findAll()).build();
         } catch (Exception e) {
             return Response.status(404).build();
@@ -58,11 +55,11 @@ public class StuffApi {
     }
 
 @GET
+@Path("/{id}")
 @Produces(MediaType.APPLICATION_JSON)
-public Response findById(){
+public Response findById(@PathParam("id") Long id){
     try {
-        return System.out.println(("Stuff:"+stuffService.findById()));
-        return Response.ok().entity(stuffService.findById().build());
+        return Response.ok().entity(stuffService.findById(id)).build();
 
     }catch (Exception e){
         return Response.status(404).build();
