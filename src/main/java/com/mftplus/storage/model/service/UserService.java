@@ -50,4 +50,15 @@ public class UserService implements ServiceImpl<User,Long> {
     public int getCount() throws Exception {
         return 0;
     }
+
+    public User FindByUserName(String useName) throws Exception{
+        Query query=entityManager.createNamedQuery("User.FindByUserName");
+        return (User) query.getSingleResult();
+
+    }
+    public User FindByUserNameAndPassword(String userName , String password) throws Exception{
+        Query query=entityManager.createNamedQuery("User.FindByUserNameAndPassword");
+        return (User) query.getSingleResult();
+
+    }
 }
