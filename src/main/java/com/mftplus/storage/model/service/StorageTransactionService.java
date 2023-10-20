@@ -40,7 +40,7 @@ public class StorageTransactionService implements ServiceImpl<StorageTransaction
     @Override
     @Transactional
     public List<StorageTransaction> findAll() throws Exception {
-        Query query = entityManager.createQuery("select oo from st oo");
+        Query query = entityManager.createQuery("select oo from storageTransactionEntity oo");
         return query.getResultList();
     }
 
@@ -54,5 +54,10 @@ public class StorageTransactionService implements ServiceImpl<StorageTransaction
     @Transactional
     public int getCount() throws Exception {
         return 0;
+    }
+    public StorageTransaction findByStock(String stuffName){
+        Query query=entityManager.createNamedQuery("Storage.FindByStock");
+        query.setParameter("stuffName",stuffName);
+        return (StorageTransaction) query.getSingleResult();
     }
 }
