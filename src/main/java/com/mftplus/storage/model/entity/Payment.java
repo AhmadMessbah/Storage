@@ -13,31 +13,43 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @SuperBuilder
-//@NamedQueries({
-//todo: findByUserId/userName, findByInvoiceId, findByDateRange, Sum_amount(findByDateRange), findByPaymentType
-//})
-@Table(name = "payment_tbl")
 
+@NamedQueries({@NamedQuery(name="Payment.FindByUserId" , query = "select  oo from paymentEntity oo where user.id=:userId") ,
+        @NamedQuery(name = "Payment.FindByUserName" , query = "select oo from paymentEntity  oo where user.userName=:userName"),
+        @NamedQuery(name = "Payment.FindByDateRange", query = "select oo from paymentEntity oo where oo.paymentType= :paymentType"),
+        @NamedQuery(name = "Payment.SumAmount", query = "select sum(oo.invoice.amount) from paymentEntity oo where oo.paymentTimeStamp between :startTimeStamp and :endTimeStamp"),
+        @NamedQuery(name = "Payment.FindByPaymentType", query = "select oo from paymentEntity oo where oo.paymentTimeStamp between :startTimeStamp and :endTimeStamp"),
+        @NamedQuery(name = "Payment.FindByInvoiceNumber" , query = "select oo from paymentEntity oo where oo.invoice.invoiceNumber=:invoiceNumber"),
+
+})
+@Table(name = "payment_tbl")
 @Entity(name = "paymentEntity")
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "p_entrance")
     private long entrance;
 
+    @Column(name = "p_outlet")
     private long outlet;
 
     @Enumerated(EnumType.ORDINAL)
+    @Column(name = "p_payment_type")
     private PaymentType paymentType;
 
+    @Column(name = "p_description")
     private String description;
 
+    @Column(name = "p_payment_time_stamp")
     private LocalDateTime paymentTimeStamp;
 
     @OneToOne
+    @JoinColumn(name = "p_invoice_id")
     private Invoice invoice;
 
     @OneToOne
+    @JoinColumn(name = "p_user_id")
     private User user;
 }

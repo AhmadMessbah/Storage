@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @NamedQueries({@NamedQuery(name="Storage.FindByStock",query = "select oo.stock from storageTransactionEntity oo where oo.stuff.name =:stuffName"),
         @NamedQuery(name="Storage.FindByEntrance", query = "select oo from storageTransactionEntity oo where oo.entrance =:entrance"),
         @NamedQuery(name="Storage.FindByExit", query = "select oo from storageTransactionEntity oo where oo.outlet=:exit") ,
-        @NamedQuery(name="Storage.FindByTransactionDate", query = "select oo from storageTransactionEntity oo where oo.transactionDate =:transactionDate"),
+        @NamedQuery(name="Storage.FindByTransactionDate", query = "select oo from storageTransactionEntity oo where oo.transactionTimeStamp =:transactionDate"),
         @NamedQuery(name="Storage.FindByUserId", query = "select oo from storageTransactionEntity oo where oo.user.id =:userId"),
         @NamedQuery(name="Storage.FindByStuffName", query = "select oo from storageTransactionEntity oo where oo.stuff.name =:stuffName")})
 
@@ -39,7 +39,7 @@ public class StorageTransaction extends Base {
     private long stock;
 
     @Column(name = "st_transactionDate")
-    private LocalDateTime transactionDate;
+    private LocalDateTime transactionTimeStamp;
 
     @OneToOne
     @JoinColumn(name = "st_stuff_id")

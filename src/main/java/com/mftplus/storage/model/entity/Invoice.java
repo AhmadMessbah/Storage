@@ -33,14 +33,14 @@ public class Invoice extends Base{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "i_invoiceNumber")
+    @Column(name = "i_invoice_number")
     private Long invoiceNumber;
 
-
-    @Column(name = "i_invoiceType")
+    @Column(name = "i_invoice_type")
+    @Enumerated(EnumType.ORDINAL)
     private InvoiceType invoiceType;
 
-    @Column(name = "i_invoiceTimeStamp")
+    @Column(name = "i_invoice_time_stamp")
     private LocalDateTime invoiceTimeStamp;
 
     @Column(name = "i_amount")
@@ -49,7 +49,7 @@ public class Invoice extends Base{
     @Column(name = "i_discount")
     private Long discount;
 
-    @Column(name = "i_pureAmount")
+    @Column(name = "i_pure_amount")
     private Long pureAmount;
 
     @OneToOne
