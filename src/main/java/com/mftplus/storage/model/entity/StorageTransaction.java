@@ -11,4 +11,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 
 public class StorageTransaction extends Base {
+
 }
