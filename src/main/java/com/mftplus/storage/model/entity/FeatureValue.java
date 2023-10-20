@@ -16,8 +16,7 @@ import java.awt.*;
 
 @NamedQueries({@NamedQuery(name="FeatureValue.FindByName",query = "select oo from featureValueEntity oo where oo.value =:value"),
         @NamedQuery(name="FeatureValue.FindByGroupId", query = "select oo from featureValueEntity  oo where oo.group.id =:id"),
-        @NamedQuery(name="FeatureValue.FindByGroupName", query = "select oo from featureValueEntity  oo where oo.group.title =:title")})
-// TODO: 10/20/2023 findByFeatureName, findByGroupTitle
+        @NamedQuery(name="FeatureValue.FindByGroupTitle", query = "select oo from featureValueEntity  oo where oo.group.title =:title")})
 
 @Table(name = "feature_value_tbl")
 @Entity(name = "featureValueEntity")
