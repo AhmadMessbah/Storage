@@ -15,29 +15,36 @@ public class UserService implements ServiceImpl<User,Long> {
     @Override
     @Transactional
     public User save(User user) throws Exception {
-        return null;
+         entityManager.persist(user);
+        return user;
     }
 
     @Override
     @Transactional
     public User edit(User user) throws Exception {
-        return null;
+        entityManager.merge(user);
+        return user;
     }
 
     @Override
     @Transactional
     public User remove(Long id) throws Exception {
-        return null;
+        User user = entityManager.find(User.class,id);
+        user.setDeleted(true);
+        entityManager.merge(user);
+        return user;
     }
 
     @Override
     public List<User> findAll() throws Exception {
-        return null;
+        Query query =entityManager.createQuery("select oo from userEntity oo");
+        return query.getResultList();
     }
 
     @Override
     public User findById(Long id) throws Exception {
-        return null;
+        return entityManager.find(User.class,id);
+
     }
 
     @Override
