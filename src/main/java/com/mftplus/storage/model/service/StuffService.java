@@ -41,7 +41,7 @@ public class StuffService implements ServiceImpl<Stuff, Long> {
     @Override
     @Transactional
     public List<Stuff> findAll() throws Exception {
-        Query query = entityManager.createQuery("select oo from groupEntity oo");
+        Query query = entityManager.createQuery("select oo from stuffEntity oo");
         return query.getResultList();
     }
 
@@ -55,5 +55,20 @@ public class StuffService implements ServiceImpl<Stuff, Long> {
     @Transactional
     public int getCount() throws Exception {
         return 0;
+    }
+    public Stuff findByName(String name) throws  Exception{
+        Query query = entityManager.createNamedQuery("Stuff.FindByName");
+        query.setParameter("name",name);
+        return (Stuff) query.getSingleResult();
+    }
+    public Stuff findByGroupId(Long id) throws Exception{
+        Query query = entityManager.createNamedQuery("Stuff.FindByGroupId");
+        query.setParameter("group.id",id);
+        return (Stuff) query.getSingleResult();
+    }
+    public Stuff byGroupName(String title) throws Exception{
+        Query query = entityManager.createNamedQuery("Stuff.FindByGroupName");
+        query.setParameter("group.title",title);
+        return (Stuff) query.getSingleResult();
     }
 }
