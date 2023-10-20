@@ -56,6 +56,9 @@ public class Invoice extends Base{
     @OneToOne
     private User user;
 
+    @OneToOne
+    private Payment payment;
+
     @OneToMany
     private List<InvoiceItem> invoiceItems;
 
