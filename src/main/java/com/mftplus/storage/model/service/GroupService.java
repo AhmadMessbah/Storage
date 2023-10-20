@@ -38,4 +38,22 @@ public class GroupService{
     public Group findById(Integer id)  {
         return entityManager.find(Group.class,id);
     }
+
+
+
+    public Group findByParentId( int id){
+        Query query = entityManager.createNamedQuery("Group.FindByParentId");
+        query.setParameter("parent.id" , id);
+        return (Group) query.getSingleResult();
+
+    }
+    public Group findParents(){
+        Query query = entityManager.createNamedQuery("Group.FindParents");
+        return (Group) query.getSingleResult();
+
+    }
+
+
+
+
 }
