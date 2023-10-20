@@ -1,38 +1,39 @@
 package com.mftplus.storage.model.service;
 
+import com.mftplus.storage.model.entity.FeatureValue;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
 
-public class FeatureValueService implements ServiceImpl<FeatureValueService, Long> {
+public class FeatureValueService implements ServiceImpl<FeatureValue, Long> {
     @Override
     @Transactional
-    public FeatureValueService save(FeatureValueService user) throws Exception {
+    public FeatureValue save(FeatureValue user) throws Exception {
         return null;
     }
 
     @Override
     @Transactional
-    public FeatureValueService edit(FeatureValueService user) throws Exception {
+    public FeatureValue edit(FeatureValue user) throws Exception {
         return null;
     }
 
     @Override
     @Transactional
-    public FeatureValueService remove(Long id) throws Exception {
+    public FeatureValue remove(Long id) throws Exception {
         return null;
     }
 
     @Override
     @Transactional
-    public List<FeatureValueService> findAll() throws Exception {
+    public List<FeatureValue> findAll() throws Exception {
         return null;
     }
 
     @Override
     @Transactional
-    public FeatureValueService findById(Long id) throws Exception {
+    public FeatureValue findById(Long id) throws Exception {
         return null;
     }
 
