@@ -12,11 +12,21 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
+@NamedQueries({@NamedQuery(name="Invoice.FindByUserId" , query = "select  oo from invoiceEntity oo where user.id=:userId") ,
+@NamedQuery(name = "Invoice.FindByUserName" , query = "select oo from invoiceEntity  oo where user.userName=:userName"),
+        @NamedQuery(name = "Invoice.FindByDateRange", query = "select oo from invoiceEntity oo where oo.invoiceTimeStamp between :startTimeStamp and :endTimeStamp"),
+        @NamedQuery(name = "Invoice.FindByInvoiceNumber" , query = "select oo from invoiceEntity oo where oo.invoiceNumber=:invoiceNumber"),
+        //@NamedQuery(name = "Invoice.FindByInvoiceItemId", query = "select oo from invoiceEntity  oo where oo.invoiceItems"),
+        //@NamedQuery(name = "Invoice.FindByStuffId" , query = "select  oo from invoiceEntity oo where oo")
+})
+@Table(name = "invoice_tbl")
+@Entity(name = "invoiceEntity")
 public class Invoice extends Base{
 
 
@@ -31,8 +41,8 @@ public class Invoice extends Base{
     @Column(name = "i_invoiceType")
     private InvoiceType invoiceType;
 
-    @Column(name = "i_invoiceDate")
-    private LocalDateTime invoiceDate;
+    @Column(name = "i_invoiceTimeStamp")
+    private LocalDateTime invoiceTimeStamp;
 
     @Column(name = "i_amount")
     private Long amount;
@@ -45,5 +55,8 @@ public class Invoice extends Base{
 
     @OneToOne
     private User user;
+
+    @OneToMany
+    private List<InvoiceItem> invoiceItems;
 
 }
