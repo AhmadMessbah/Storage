@@ -11,6 +11,9 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @SuperBuilder
+@NamedQueries({@NamedQuery(name="Stuff.FindByName",query = "select oo from stuffEntity oo where oo.name =:name"),
+        @NamedQuery(name="Stuff.FindByGroupId", query = "select oo from stuffEntity oo where oo.group.id =:id"),
+        @NamedQuery(name="Stuff.FindByGroupName", query = "select oo from stuffEntity oo where oo.group.title =:title")})
 
 @Table(name = "stuff_tbl")
 @Entity(name = "stuffEntity")
@@ -30,4 +33,9 @@ public class Stuff extends Base {
     @OneToOne
     @JoinColumn(name = "s_stuff_unit")
     private StuffUnit stuffUnit;
+
+
+
+
+
 }

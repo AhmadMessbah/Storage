@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import jakarta.validation.constraints.Pattern;
 
 import java.awt.*;
 
@@ -21,7 +22,7 @@ public class FeatureValue extends Base{
     private long id;
 
     @Column(name = "pv_value")
-//    @Pattern()
+    @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invaild Value")
     private String value;
 
     @OneToOne

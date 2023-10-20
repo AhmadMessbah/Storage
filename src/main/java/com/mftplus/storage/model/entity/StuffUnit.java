@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -20,6 +22,6 @@ public class StuffUnit extends Base {
     private int id;
 
     @Column(name = "su_unitName")
-//    @Pattern()
+    @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invaild Unit Name")
     private String unitName;
 }
