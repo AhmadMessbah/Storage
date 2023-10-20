@@ -3,6 +3,7 @@ package com.mftplus.storage.model.service;
 import com.mftplus.storage.model.entity.Group;
 import com.mftplus.storage.model.entity.Invoice;
 import com.mftplus.storage.model.entity.StorageTransaction;
+import com.mftplus.storage.model.entity.enums.InvoiceType;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -22,7 +23,12 @@ public class InvoiceService implements ServiceImpl<Invoice,Long>, Serializable {
     @Override
     @Transactional
     public Invoice save(Invoice invoice) throws Exception {
-       entityManager.persist(invoice);
+       if (invoice.getInvoiceType().equals(InvoiceType.sell)){
+           entityManager.persist(invoice);}
+       else{
+
+        }
+
         return invoice;
     }
 

@@ -36,6 +36,7 @@ public class GroupService{
     }
 
     public Group findById(Integer id)  {
+
         return entityManager.find(Group.class,id);
     }
 
