@@ -34,6 +34,6 @@ public class User extends Base {
     @OneToOne
     private Person person;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Role role;
 }
