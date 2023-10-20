@@ -3,14 +3,17 @@ package com.mftplus.storage.model.service;
 import com.mftplus.storage.model.entity.Feature;
 import com.mftplus.storage.model.entity.FeatureValue;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
+import java.io.Serializable;
 import java.util.List;
+@ApplicationScoped
 
-public class FeatureValueService implements ServiceImpl<FeatureValue, Long> {
+public class FeatureValueService implements ServiceImpl<FeatureValue, Long> , Serializable {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
     @Override

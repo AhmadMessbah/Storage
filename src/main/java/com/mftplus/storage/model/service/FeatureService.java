@@ -9,11 +9,12 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 @ApplicationScoped
-public class FeatureService implements ServiceImpl<Feature, Long> {
+public class FeatureService implements ServiceImpl<Feature, Long>, Serializable {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
 
