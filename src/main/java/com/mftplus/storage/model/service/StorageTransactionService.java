@@ -3,15 +3,18 @@ package com.mftplus.storage.model.service;
 import com.mftplus.storage.model.entity.Group;
 import com.mftplus.storage.model.entity.StorageTransaction;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
+@ApplicationScoped
 
-public class StorageTransactionService implements ServiceImpl<StorageTransaction, Long> {
+public class StorageTransactionService implements ServiceImpl<StorageTransaction, Long>, Serializable {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
 
