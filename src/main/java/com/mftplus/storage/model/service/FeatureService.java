@@ -72,7 +72,6 @@ public class FeatureService implements ServiceImpl<Feature, Long>, Serializable 
         return (Feature) query.getSingleResult();
     }
 
-
     @Override
     public int getCount() throws Exception {
         return 0;

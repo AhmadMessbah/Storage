@@ -60,6 +60,18 @@ public class GroupApi {
     }
 
     @GET
+    @Path("/parents/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findParents(@PathParam("id") Integer id) {
+        try {
+            System.out.println(groupService.findParentsId(id));
+            return Response.ok().build();
+        } catch (Exception e) {
+            return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
+        }
+    }
+
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response findById(@PathParam("id") String id) {
