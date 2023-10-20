@@ -43,7 +43,7 @@ import jakarta.ws.rs.core.Response;
         @DELETE
         @Path("/{id}")
         @Produces(MediaType.APPLICATION_JSON)
-        public Response remove(@PathParam("id") Integer id) {
+        public Response remove(@PathParam("id") Long id) {
             try {
                 return Response.ok().entity(featurevalueService.remove(id)).build();
             } catch (Exception e) {
