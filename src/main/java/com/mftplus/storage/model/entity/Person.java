@@ -3,10 +3,7 @@ package com.mftplus.storage.model.entity;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @NoArgsConstructor
@@ -33,4 +30,9 @@ public class Person extends Base{
     @Column(name="p_family",length = 30)
     @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invalid Family")
     private String family;
+
+    public Person(String name, String family) {
+        this.name = name;
+        this.family = family;
+    }
 }
