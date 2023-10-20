@@ -23,6 +23,6 @@ public class Role extends Base{
     private long id;
 
     @Column(name="r_name",length = 30, unique = true)
-    @Pattern(regexp = "^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$", message = "Invalid Role")
+    @Pattern(regexp = "^[a-zA-Z\\s]{0,20}$", message = "Invalid Role")
     private String role;
 }
