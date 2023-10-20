@@ -108,4 +108,4 @@ public class FeatureApi {
 //            return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
 //        }
 //    }
-    }
+}

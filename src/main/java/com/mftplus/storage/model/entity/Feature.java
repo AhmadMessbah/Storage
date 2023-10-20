@@ -7,8 +7,8 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import jakarta.validation.constraints.Pattern;
 @NamedQueries({@NamedQuery(name="Feature.FindByName",query = "select oo from featureEntity oo where oo.FeatureName =:featureName"),
-        @NamedQuery(name="Feature.FindByGroupId", query = "select oo from featureEntity oo where oo.group.id =:id"),
-        @NamedQuery(name="Feature.FindByGroupTitle", query = "select oo from featureEntity oo where oo.group.title =:title")})
+        @NamedQuery(name="Feature.FindByGroupId", query = "select oo from featureEntity oo where oo.group.id =:groupId"),
+        @NamedQuery(name="Feature.FindByGroupTitle", query = "select oo from featureEntity oo where oo.group.title =:groupTitle")})
 
 @NoArgsConstructor
 @Getter

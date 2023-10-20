@@ -55,14 +55,13 @@ public class RoleApi {
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll() {
         try {
-            System.out.println("OUTPUT : "+roleService.findAll());
+            System.out.println("OUTPUT : " + roleService.findAll());
             return Response.ok().entity(roleService.findAll()).build();
 //        }catch (NoContentException e){
 //            return Response.noContent().build();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}") .build();
+            return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }
     }
 
