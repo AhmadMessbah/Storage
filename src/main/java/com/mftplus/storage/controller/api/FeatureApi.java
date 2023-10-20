@@ -1,7 +1,6 @@
 package com.mftplus.storage.controller.api;
 
 import com.mftplus.storage.model.entity.Feature;
-import com.mftplus.storage.model.entity.Feature;
 import com.mftplus.storage.model.service.FeatureService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
