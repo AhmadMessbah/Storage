@@ -14,7 +14,7 @@ public class StuffApi {
     @Inject
     private StuffService stuffService;
     @Inject
-    private StuffUnitService stuffUnitService;
+    private StuffService stuffUnitService;
 
 
     @POST
