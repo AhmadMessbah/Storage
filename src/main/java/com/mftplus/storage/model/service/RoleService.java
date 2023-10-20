@@ -49,8 +49,8 @@ public class RoleService implements ServiceImpl<Role, Long> {
     @Override
     @Transactional
     public Role findById(Long id) throws Exception {
-//        return entityManager.find(Group.class,id);
-        return null;
+        return entityManager.find(Role.class,id);
+
 
     }
 
