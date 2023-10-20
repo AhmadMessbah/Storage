@@ -49,9 +49,22 @@ public class FeatureValueService implements ServiceImpl<FeatureValue, Long> {
         return entityManager.find(FeatureValue.class,id);
     }
 
-    // TODO: 10/20/2023 findByFeatureName/ID, findByGroupTitle/ID
+    public FeatureValue findByName (String value ){
+        Query query=entityManager.createNamedQuery("FeatureValue.FindByName");
+        query.setParameter("Value", value);
+        return (FeatureValue) query.getSingleResult();
+    }
 
-
+    public FeatureValue findByGroupId(Long id){
+        Query query=entityManager.createNamedQuery("FeatureValue.FindByGroupId");
+        query.setParameter("groupId", id);
+        return (FeatureValue) query.getSingleResult();
+    }
+    public FeatureValue FindByGroupTitle(String groupTitle){
+        Query query=entityManager.createNamedQuery("FeatureValue.FindByGroupTitle");
+        query.setParameter("groupTitle", groupTitle);
+        return (FeatureValue) query.getSingleResult();
+    }
 
     @Override
     @Transactional
