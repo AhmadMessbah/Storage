@@ -32,7 +32,7 @@ public class StorageTransaction extends Base {
     @Column(name = "st_entrance")
     private LocalDateTime entrance;
 
-    @Column(name = "st_exit")
+    @Column(name = "st_outlet")
     private LocalDateTime outlet;
 
     @Column(name = "st_stock")
