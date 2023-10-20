@@ -27,7 +27,7 @@ public class Group extends Base {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Pattern(regexp = "^[A-Za-z0-9]{3,30}$", message = "Invalid group title")
+    @Pattern(regexp = "^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$", message = "Invalid group title")
     @Column(name = "g_title",length = 30)
     private String title;
 

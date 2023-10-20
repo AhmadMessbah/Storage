@@ -1,6 +1,7 @@
 package com.mftplus.storage.model.service;
 
 import com.mftplus.storage.model.entity.Group;
+import com.mftplus.storage.model.entity.Stuff;
 import com.mftplus.storage.model.entity.StuffUnit;
 import com.mftplus.storage.model.entity.User;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
@@ -41,7 +42,7 @@ public class StuffUnitService implements ServiceImpl<StuffUnit, Integer> {
     @Override
     @Transactional
     public List<StuffUnit> findAll() throws Exception {
-        Query query = entityManager.createQuery("select oo from groupEntity oo");
+        Query query = entityManager.createQuery("select oo from stuffUnitEntity oo");
         return query.getResultList();
     }
 
@@ -55,5 +56,10 @@ public class StuffUnitService implements ServiceImpl<StuffUnit, Integer> {
     @Transactional
     public int getCount() throws Exception {
         return 0;
+    }
+    public StuffUnit FindByName(String unitName){
+        Query query = entityManager.createNamedQuery("StuffUnit.FindByName");
+        query.setParameter("unitName" ,unitName );
+        return (StuffUnit) query.getSingleResult();
     }
 }

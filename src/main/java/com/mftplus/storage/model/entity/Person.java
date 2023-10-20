@@ -24,11 +24,11 @@ public class Person extends Base{
     private long id;
 
     @Column(name="p_name",length = 30)
-    @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invalid Name")
+    @Pattern(regexp = "^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$", message = "Invalid Name")
     private String name;
 
     @Column(name="p_family",length = 30)
-    @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invalid Family")
+    @Pattern(regexp = "^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$", message = "Invalid Family")
     private String family;
 
     public Person(String name, String family) {

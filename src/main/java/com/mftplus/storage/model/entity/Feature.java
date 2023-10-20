@@ -23,7 +23,7 @@ public class Feature extends Base{
     private long id;
 
     @Column(name = "f_feature_name")
-    @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invalid Feature Name")
+    @Pattern(regexp = "^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$", message = "Invalid Feature Name")
     private String FeatureName;
 
     @OneToOne
