@@ -59,21 +59,21 @@ public class StuffService implements ServiceImpl<Stuff, Long>, Serializable {
     }
 
     @Transactional
-    public Stuff findByName(String name) throws Exception {
+    public Stuff findByName(String name) {
         Query query = entityManager.createNamedQuery("Stuff.FindByName");
         query.setParameter("name", name);
         return (Stuff) query.getSingleResult();
     }
 
     @Transactional
-    public Stuff findByGroupId(Long groupId) throws Exception {
+    public Stuff findByGroupId(Long groupId) {
         Query query = entityManager.createNamedQuery("Stuff.FindByGroupId");
         query.setParameter("groupId", groupId);
         return (Stuff) query.getSingleResult();
     }
 
     @Transactional
-    public Stuff byGroupTitle(String groupTitle) throws Exception {
+    public Stuff byGroupTitle(String groupTitle) {
         Query query = entityManager.createNamedQuery("Stuff.FindByGroupTitle");
         query.setParameter("groupTitle", groupTitle);
         return (Stuff) query.getSingleResult();

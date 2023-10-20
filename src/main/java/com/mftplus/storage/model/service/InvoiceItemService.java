@@ -1,7 +1,6 @@
 package com.mftplus.storage.model.service;
 
 import com.mftplus.storage.model.entity.InvoiceItem;
-import com.mftplus.storage.model.entity.User;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -11,11 +10,13 @@ import jakarta.transaction.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
+
 @ApplicationScoped
 
-public class InvoiceItemService implements ServiceImpl<InvoiceItem,Long>, Serializable {
+public class InvoiceItemService implements ServiceImpl<InvoiceItem, Long>, Serializable {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
+
     @Override
     @Transactional
     public InvoiceItem save(InvoiceItem invoiceItem) throws Exception {
@@ -33,7 +34,7 @@ public class InvoiceItemService implements ServiceImpl<InvoiceItem,Long>, Serial
     @Override
     @Transactional
     public InvoiceItem remove(Long id) throws Exception {
-        InvoiceItem invoiceItem=entityManager.find(InvoiceItem.class,id);
+        InvoiceItem invoiceItem = entityManager.find(InvoiceItem.class, id);
         invoiceItem.setDeleted(true);
         entityManager.merge(invoiceItem);
         return invoiceItem;
@@ -47,12 +48,13 @@ public class InvoiceItemService implements ServiceImpl<InvoiceItem,Long>, Serial
 
     @Override
     public InvoiceItem findById(Long id) throws Exception {
-        return entityManager.find(InvoiceItem.class,id);
+        return entityManager.find(InvoiceItem.class, id);
 
     }
-    public InvoiceItem findByStuffId(Long id){
+
+    public InvoiceItem findByStuffId(Long id) {
         Query query = entityManager.createNamedQuery("InvoiceItem.FindByStuffId");
-        query.setParameter("StuffId",id);
+        query.setParameter("stuffId", id);
         return (InvoiceItem) query.getSingleResult();
     }
 

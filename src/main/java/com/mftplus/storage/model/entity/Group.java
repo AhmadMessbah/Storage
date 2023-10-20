@@ -13,11 +13,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 
 @Entity(name = "groupEntity")
-@Table(name="group_tbl")
+@Table(name = "group_tbl")
 
 @NamedQueries({
-        @NamedQuery(name="Group.FindByParentId", query = "select oo from groupEntity oo  where oo.parent.id=:parentId"),
-        @NamedQuery(name="Group.FindRootParents", query = "select oo from groupEntity oo where oo.parent.id is null")
+        @NamedQuery(name = "Group.FindByParentId", query = "select oo from groupEntity oo  where oo.parent.id=:parentId"),
+        @NamedQuery(name = "Group.FindByParentTitle", query = "select oo from groupEntity oo  where oo.parent.title=:parentTitle"),
+        @NamedQuery(name = "Group.FindRootParents", query = "select oo from groupEntity oo where oo.parent.id is null")
 })
 public class Group extends Base {
     @Id
@@ -25,7 +26,7 @@ public class Group extends Base {
     private int id;
 
     @Pattern(regexp = "^[a-zA-Z\\s]{0,20}$", message = "Invalid group title")
-    @Column(name = "g_title",length = 30)
+    @Column(name = "g_title", length = 30)
     private String title;
 
     @ManyToOne

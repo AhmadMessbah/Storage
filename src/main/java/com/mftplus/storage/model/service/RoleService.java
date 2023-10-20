@@ -1,6 +1,5 @@
 package com.mftplus.storage.model.service;
 
-import com.mftplus.storage.model.entity.Group;
 import com.mftplus.storage.model.entity.Role;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -11,6 +10,7 @@ import jakarta.transaction.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
+
 @ApplicationScoped
 
 public class RoleService implements ServiceImpl<Role, Long>, Serializable {
@@ -35,7 +35,7 @@ public class RoleService implements ServiceImpl<Role, Long>, Serializable {
     @Override
     @Transactional
     public Role remove(Long id) throws Exception {
-        Role role = entityManager.find(Role.class,id);
+        Role role = entityManager.find(Role.class, id);
         role.setDeleted(true);
         entityManager.merge(role);
         return role;
@@ -46,15 +46,12 @@ public class RoleService implements ServiceImpl<Role, Long>, Serializable {
     public List<Role> findAll() throws Exception {
         Query query = entityManager.createQuery("select oo from roleEntity oo");
         return query.getResultList();
-
     }
 
     @Override
     @Transactional
     public Role findById(Long id) throws Exception {
-        return entityManager.find(Role.class,id);
-
-
+        return entityManager.find(Role.class, id);
     }
 
     @Override
