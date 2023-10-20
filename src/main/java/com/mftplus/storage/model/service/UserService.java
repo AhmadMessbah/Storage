@@ -51,13 +51,16 @@ public class UserService implements ServiceImpl<User,Long> {
         return 0;
     }
 
-    public User FindByUserName(String useName) throws Exception{
+    public User FindByUserName(String userName) throws Exception{
         Query query=entityManager.createNamedQuery("User.FindByUserName");
+        query.setParameter("userName",userName);
         return (User) query.getSingleResult();
 
     }
     public User FindByUserNameAndPassword(String userName , String password) throws Exception{
         Query query=entityManager.createNamedQuery("User.FindByUserNameAndPassword");
+        query.setParameter("userName",userName);
+        query.setParameter( "password",password);
         return (User) query.getSingleResult();
 
     }
