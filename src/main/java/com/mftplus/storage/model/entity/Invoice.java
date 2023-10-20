@@ -4,6 +4,7 @@ public class Invoice {
     /*
     id
     invoiceId
+    invoiceType //sabad kharid pish factor / factor kharid
     dateTime
     amount
     discount
