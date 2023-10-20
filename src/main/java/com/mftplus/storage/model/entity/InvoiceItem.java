@@ -22,11 +22,11 @@ public class InvoiceItem extends Base {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "s_name")
+    @Column(name = "ii_count")
     private Long count;
 
 
-    @Column(name = "s_name")
+    @Column(name = "ii_amount")
     private Long amount;
 
 
@@ -35,6 +35,7 @@ public class InvoiceItem extends Base {
 
 
     @OneToOne
+    @JoinColumn(name = "ii_stuff_id")
     private Stuff stuff;
 
 

@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @SuperBuilder
 public class Invoice extends Base{
 
-    //id
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
