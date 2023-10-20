@@ -55,32 +55,32 @@ public class InvoiceService implements ServiceImpl<Invoice,Long> {
         return 0;
     }
     public Invoice findByUserId(Long userId){
-        Query query=entityManager.createNamedQuery("Storage.FindByUserId");
+        Query query=entityManager.createNamedQuery("Invoice.FindByUserId");
         query.setParameter("UserId",userId);
         return (Invoice) query.getSingleResult();
     }
     public Invoice findByUserName(String userName){
-        Query query=entityManager.createNamedQuery("Storage.FindByUserName");
+        Query query=entityManager.createNamedQuery("Invoice.FindByUserName");
         query.setParameter("UserName",userName);
         return (Invoice) query.getSingleResult();
     }
     public List<Invoice> findByDataRange(LocalDateTime dataRange){
-        Query query=entityManager.createNamedQuery("Storage.FindByDataRange");
+        Query query=entityManager.createNamedQuery("Invoice.FindByDataRange");
         query.setParameter("DataRange",dataRange);
         return query.getResultList();
     }
     public Invoice findByInvoiceId(Long invoiceId){
-        Query query=entityManager.createNamedQuery("Storage.FindByInvoiceId");
+        Query query=entityManager.createNamedQuery("Invoice.FindByInvoiceId");
         query.setParameter("InvoiceId",invoiceId);
         return (Invoice) query.getSingleResult();
     }
     public Invoice findByInvoiceItemId(Long invoiceItemId){
-        Query query=entityManager.createNamedQuery("Storage.FindByInvoiceItemId");
+        Query query=entityManager.createNamedQuery("Invoice.FindByInvoiceItemId");
         query.setParameter("InvoiceItemId",invoiceItemId);
         return (Invoice) query.getSingleResult();
     }
     public Invoice findByStuffId(Long stuffId){
-        Query query=entityManager.createNamedQuery("Storage.FindByStuffId");
+        Query query=entityManager.createNamedQuery("Invoice.FindByStuffId");
         query.setParameter("StuffId",stuffId);
         return (Invoice) query.getSingleResult();
     }
