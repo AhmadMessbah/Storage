@@ -1,6 +1,7 @@
 package com.mftplus.storage.model.entity;
 
 import com.google.gson.Gson;
+import com.mftplus.storage.model.entity.enums.InvoiceType;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @SuperBuilder
-public class Invoice {
+public class Invoice extends Base{
 
     //id
     @Id
@@ -28,8 +29,7 @@ public class Invoice {
 
 
     @Column(name = "i_invoiceType")
-    @Pattern(regexp = "^[a-zA-Z\\s]{0,20}$", message = "Invalid Type")
-    private Enum invoiceType;
+    private InvoiceType invoiceType;
 
     @Column(name = "i_invoiceDate")
     private LocalDateTime invoiceDate;
