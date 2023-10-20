@@ -39,10 +39,10 @@ public class StuffApi {
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(StuffUnit stuffunit) {
         try {
-            return Response.ok().entity(stufUnitService.save(stuffunit)).build();
+            return Response.ok().entity(stuffUnitService.save(stuffunit)).build();
 
         } catch (Exception e) {
-            reture Response.status(500).entity("{")
+            return Response.status(500).entity("{\"message\":"+e.getMessage()+"\"}").build();
         }
     }
 }
