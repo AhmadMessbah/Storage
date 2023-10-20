@@ -1,5 +1,6 @@
 package com.mftplus.storage.model.service;
 
+import com.mftplus.storage.model.entity.Group;
 import com.mftplus.storage.model.entity.StorageTransaction;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.persistence.EntityManager;
@@ -46,7 +47,7 @@ public class StorageTransactionService implements ServiceImpl<StorageTransaction
     @Override
     @Transactional
     public StorageTransaction findById(Long id) throws Exception {
-        return null;
+        return entityManager.find(StorageTransaction.class,id);
     }
 
     @Override
