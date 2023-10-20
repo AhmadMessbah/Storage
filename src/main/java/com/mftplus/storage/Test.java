@@ -7,5 +7,6 @@ public class Test {
     public static void main(String[] args) throws Exception{
         StuffService stuffService = new StuffService();
         stuffService.save(Stuff.builder().name("A21").build());
+
     }
 }

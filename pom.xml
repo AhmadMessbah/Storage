@@ -4,10 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>WebProfile</artifactId>
+
+    <groupId>com.mftplus</groupId>
+    <artifactId>Storage</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>WebProfile</name>
+    <name>Storage</name>
     <packaging>war</packaging>
 
     <properties>
