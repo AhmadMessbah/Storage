@@ -51,12 +51,10 @@ public class UserApi {
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll() {
         try {
-            System.out.println("OUTPUT : " + userService.findAll());
             return Response.ok().entity(userService.findAll()).build();
         } catch (NoContentException e) {
             return Response.noContent().build();
         } catch (Exception e) {
-            e.printStackTrace();
             return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }
     }
@@ -65,15 +63,10 @@ public class UserApi {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response findById(@PathParam("id") Long id) {
-        System.out.println("FindById Method in UserApi");
-        System.out.println("Id : " + id);
         try {
             return Response.ok().entity(userService.findById(id)).build();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
             return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
-
         }
     }
 }

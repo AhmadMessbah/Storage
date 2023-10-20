@@ -1,10 +1,6 @@
 package com.mftplus.storage.model.entity;
 
-import com.google.gson.Gson;
-import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

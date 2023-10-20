@@ -12,7 +12,6 @@ public class StuffApi {
     @Inject
     private StuffService stuffService;
 
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -20,7 +19,6 @@ public class StuffApi {
         try {
             return Response.ok().entity(stuffService.save(stuff)).build();
         } catch (Exception e) {
-            e.printStackTrace();
             return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }
     }
