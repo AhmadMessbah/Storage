@@ -41,7 +41,6 @@ public class InvoiceItemService implements ServiceImpl<InvoiceItem,Long>, Serial
 
     @Override
     public List<InvoiceItem> findAll() throws Exception {
-        // todo:entity name
         Query query = entityManager.createQuery("select oo from invoiceItemEntity oo");
         return query.getResultList();
     }
