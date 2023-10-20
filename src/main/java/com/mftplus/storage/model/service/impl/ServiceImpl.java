@@ -1,5 +1,7 @@
 package com.mftplus.storage.model.service.impl;
 
+import com.mftplus.storage.model.entity.Group;
+
 import java.util.List;
 
 public interface ServiceImpl<T, I> {
