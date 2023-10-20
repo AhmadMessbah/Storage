@@ -17,6 +17,11 @@ import lombok.experimental.SuperBuilder;
 
 @Entity(name = "invoiceItemEntity")
 @Table(name="invoiceItem_tbl")
+
+@NamedQueries({
+        @NamedQuery(name = "InvoiceItem.FindByInvoiceId", query = "select oo from invoiceItemEntity  oo where oo.invoice.id = :invoiceId") ,
+                @NamedQuery(name = "InvoiceItem.FindByStuffId" , query = "select  oo from invoiceItemEntity oo where oo.stuff.id= :stuffId")
+})
 public class InvoiceItem extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,9 +34,8 @@ public class InvoiceItem extends Base {
     @Column(name = "ii_amount")
     private Long amount;
 
-
-//    @ManyToOne
-//    private Invoice invoice;
+    @ManyToOne
+    private Invoice invoice;
 
 
     @OneToOne

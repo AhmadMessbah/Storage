@@ -22,8 +22,7 @@ import java.util.List;
 @NamedQuery(name = "Invoice.FindByUserName" , query = "select oo from invoiceEntity  oo where user.userName=:userName"),
         @NamedQuery(name = "Invoice.FindByDateRange", query = "select oo from invoiceEntity oo where oo.invoiceTimeStamp between :startTimeStamp and :endTimeStamp"),
         @NamedQuery(name = "Invoice.FindByInvoiceNumber" , query = "select oo from invoiceEntity oo where oo.invoiceNumber=:invoiceNumber"),
-        //@NamedQuery(name = "Invoice.FindByInvoiceItemId", query = "select oo from invoiceEntity  oo where oo.invoiceItems"),
-        //@NamedQuery(name = "Invoice.FindByStuffId" , query = "select  oo from invoiceEntity oo where oo")
+
 })
 @Table(name = "invoice_tbl")
 @Entity(name = "invoiceEntity")
@@ -55,6 +54,9 @@ public class Invoice extends Base{
 
     @OneToOne
     private User user;
+
+    @OneToOne
+    private Payment payment;
 
     @OneToMany
     private List<InvoiceItem> invoiceItems;
