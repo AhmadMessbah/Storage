@@ -44,7 +44,7 @@ public class FeatureApi {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response remove(@PathParam("id") Integer id) {
+    public Response remove(@PathParam("id") Long id) {
         try {
             return Response.ok().entity(featureService.remove(id)).build();
         } catch (Exception e) {
@@ -74,7 +74,7 @@ public class FeatureApi {
         System.out.println(id);
 
         try {
-            return Response.ok().entity(featureService.findById(Integer.valueOf(id))).build();
+            return Response.ok().entity(featureService.findById(Long.valueOf(id))).build();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
