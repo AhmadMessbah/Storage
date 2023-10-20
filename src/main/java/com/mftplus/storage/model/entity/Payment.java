@@ -24,7 +24,9 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private int amount;
+    private long entrance;
+
+    private long outlet;
 
     @Enumerated(EnumType.ORDINAL)
     private PaymentType paymentType;
