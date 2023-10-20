@@ -44,7 +44,7 @@ import jakarta.ws.rs.core.Response;
         @Produces(MediaType.APPLICATION_JSON)
         public Response remove(@PathParam("id") Integer id) {
             try {
-                return Response.ok().entity(groupService.remove(id)).build();
+                return Response.ok().entity(featurevalueService.remove(id)).build();
             } catch (Exception e) {
                 return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
             }
@@ -54,8 +54,8 @@ import jakarta.ws.rs.core.Response;
         @Produces(MediaType.APPLICATION_JSON)
         public Response findAll() {
             try {
-                System.out.println("OUTPUT : "+groupService.findAll());
-                return Response.ok().entity(groupService.findAll()).build();
+                System.out.println("OUTPUT : "+featurevalueService.findAll());
+                return Response.ok().entity(featurevalueService.findAll()).build();
 //        }catch (NoContentException e){
 //            return Response.noContent().build();
             }
@@ -73,7 +73,7 @@ import jakarta.ws.rs.core.Response;
             System.out.println(id);
 
             try {
-                return Response.ok().entity(groupService.findById(Integer.valueOf(id))).build();
+                return Response.ok().entity(featurevalueService.findById(Integer.valueOf(id))).build();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
@@ -86,7 +86,7 @@ import jakarta.ws.rs.core.Response;
 //    @Path("/parent")
 //    public Response findByParents() {
 //        try {
-//            return Response.ok().entity(groupService.findParents()).build();
+//            return Response.ok().entity(featurevalueService.findParents()).build();
 //        } catch (Exception e) {
 //            System.out.println(e.getMessage());
 //            return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
@@ -100,7 +100,7 @@ import jakarta.ws.rs.core.Response;
 //        System.out.println("FindByParentId");
 //        System.out.println(parentId);
 //        try {
-//            return Response.ok().entity(groupService.findByParentId(Integer.valueOf(parentId))).build();
+//            return Response.ok().entity(featurevalueService.findByParentId(Integer.valueOf(parentId))).build();
 //        } catch (Exception e) {
 //            System.out.println(e.getMessage());
 //            e.printStackTrace();
