@@ -47,13 +47,8 @@ public class GroupService{
         return (Group) query.getSingleResult();
 
     }
-    public Group findParents(){
-        Query query = entityManager.createNamedQuery("Group.FindParents");
-        return (Group) query.getSingleResult();
-
+    public List<Group> findRootParents() {
+        Query query = entityManager.createNamedQuery("Group.FindRootParents");
+        return query.getResultList();
     }
-
-
-
-
 }

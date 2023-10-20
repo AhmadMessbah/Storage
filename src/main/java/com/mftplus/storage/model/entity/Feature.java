@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 import jakarta.validation.constraints.Pattern;
 @NamedQueries({@NamedQuery(name="Feature.FindByName",query = "select oo from featureEntity oo where oo.FeatureName =:featureName"),
         @NamedQuery(name="Feature.FindByGroupId", query = "select oo from featureEntity oo where oo.group.id =:id"),
-        @NamedQuery(name="Feature.FindByGroupName", query = "select oo from featureEntity oo where oo.group.title =:title")})
+        @NamedQuery(name="Feature.FindByGroupTitle", query = "select oo from featureEntity oo where oo.group.title =:title")})
 
 @NoArgsConstructor
 @Getter
@@ -23,7 +23,7 @@ public class Feature extends Base{
     private long id;
 
     @Column(name = "f_feature_name")
-    @Pattern(regexp = "^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$", message = "Invalid Feature Name")
+    @Pattern(regexp = "^[a-zA-Z\\s]{0,20}$", message = "Invalid Feature Name")
     private String FeatureName;
 
     @OneToOne

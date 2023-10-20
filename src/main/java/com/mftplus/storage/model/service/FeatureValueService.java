@@ -49,6 +49,10 @@ public class FeatureValueService implements ServiceImpl<FeatureValue, Long> {
         return entityManager.find(FeatureValue.class,id);
     }
 
+    // TODO: 10/20/2023 findByFeatureName/ID, findByGroupTitle/ID
+
+
+
     @Override
     @Transactional
     public int getCount() throws Exception {

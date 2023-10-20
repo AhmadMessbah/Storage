@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @ApplicationScoped
-public class FeatureService implements ServiceImpl<Feature , Long> {
+public class FeatureService implements ServiceImpl<Feature, Long> {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
 
@@ -35,7 +35,7 @@ public class FeatureService implements ServiceImpl<Feature , Long> {
     @Override
     @Transactional
     public Feature remove(Long id) throws Exception {
-        Feature feature = entityManager.find(Feature.class,id);
+        Feature feature = entityManager.find(Feature.class, id);
         feature.setDeleted(true);
         entityManager.merge(feature);
         return feature;
@@ -51,7 +51,12 @@ public class FeatureService implements ServiceImpl<Feature , Long> {
     @Override
 
     public Feature findById(Long id) throws Exception {
-        return entityManager.find(Feature.class,id);
+        return entityManager.find(Feature.class, id);
+    }
+
+    public Feature findByName(String name) throws Exception {
+//    todo
+        return null;
     }
 
     @Override

@@ -36,8 +36,8 @@ public class PersonService implements ServiceImpl<Person, Long> {
     @Override
     @Transactional
     public Person remove(Long id) throws Exception {
-        Person  person = entityManager.find(Person.class,id);
-        person . setDeleted(true);
+        Person person = entityManager.find(Person.class, id);
+        person.setDeleted(true);
         entityManager.merge(person);
         return person;
 
@@ -51,9 +51,8 @@ public class PersonService implements ServiceImpl<Person, Long> {
 
     @Override
     public Person findById(Long id) throws Exception {
-
         {
-            return entityManager.find(Person.class,id);
+            return entityManager.find(Person.class, id);
         }
     }
 
@@ -61,10 +60,11 @@ public class PersonService implements ServiceImpl<Person, Long> {
     public int getCount() throws Exception {
         return 0;
     }
-    public Person findByNameFamily(String name , String family){
+
+    public Person findByNameFamily(String name, String family) {
         Query query = entityManager.createNamedQuery("Person.FindByNameFamily");
-        query.setParameter("name" , name);
-        query.setParameter("family" , family);
-        return(Person) query.getSingleResult();
+        query.setParameter("name", name);
+        query.setParameter("family", family);
+        return (Person) query.getSingleResult();
     }
 }

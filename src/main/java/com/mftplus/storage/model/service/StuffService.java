@@ -1,8 +1,6 @@
 package com.mftplus.storage.model.service;
 
-import com.mftplus.storage.model.entity.Group;
 import com.mftplus.storage.model.entity.Stuff;
-import com.mftplus.storage.model.entity.User;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -12,9 +10,9 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 
 public class StuffService implements ServiceImpl<Stuff, Long> {
-
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
+
     @Override
     @Transactional
     public Stuff save(Stuff stuff) throws Exception {
@@ -61,14 +59,14 @@ public class StuffService implements ServiceImpl<Stuff, Long> {
         query.setParameter("name",name);
         return (Stuff) query.getSingleResult();
     }
-    public Stuff findByGroupId(Long id) throws Exception{
+    public Stuff findByGroupId(Long groupId) throws Exception{
         Query query = entityManager.createNamedQuery("Stuff.FindByGroupId");
-        query.setParameter("id",id);
+        query.setParameter("groupId",groupId);
         return (Stuff) query.getSingleResult();
     }
-    public Stuff byGroupName(String title) throws Exception{
-        Query query = entityManager.createNamedQuery("Stuff.FindByGroupName");
-        query.setParameter("title",title);
+    public Stuff byGroupTitle(String groupTitle) throws Exception{
+        Query query = entityManager.createNamedQuery("Stuff.FindByGroupTitle");
+        query.setParameter("groupTitle",groupTitle);
         return (Stuff) query.getSingleResult();
     }
 }

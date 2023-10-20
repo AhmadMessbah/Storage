@@ -12,8 +12,8 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 @NamedQueries({@NamedQuery(name="Stuff.FindByName",query = "select oo from stuffEntity oo where oo.name =:name"),
-        @NamedQuery(name="Stuff.FindByGroupId", query = "select oo from stuffEntity oo where oo.group.id =:id"),
-        @NamedQuery(name="Stuff.FindByGroupName", query = "select oo from stuffEntity oo where oo.group.title =:title")})
+        @NamedQuery(name="Stuff.FindByGroupId", query = "select oo from stuffEntity oo where oo.group.id =:groupId"),
+        @NamedQuery(name="Stuff.FindByGroupTitle", query = "select oo from stuffEntity oo where oo.group.title =:groupTitle")})
 
 @Table(name = "stuff_tbl")
 @Entity(name = "stuffEntity")
