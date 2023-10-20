@@ -26,7 +26,7 @@ public class FeatureValue extends Base{
     private long id;
 
     @Column(name = "pv_value")
-    @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invaild Value")
+    @Pattern(regexp = "^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$", message = "Invaild Value")
     private String value;
 
     @OneToOne
