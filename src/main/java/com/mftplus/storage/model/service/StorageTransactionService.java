@@ -40,7 +40,7 @@ public class StorageTransactionService implements ServiceImpl<StorageTransaction
     @Override
     @Transactional
     public List<StorageTransaction> findAll() throws Exception {
-        Query query = entityManager.createQuery("select oo from groupEntity oo");
+        Query query = entityManager.createQuery("select oo from st oo");
         return query.getResultList();
     }
 
