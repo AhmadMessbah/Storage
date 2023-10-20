@@ -63,12 +63,12 @@ public class StuffService implements ServiceImpl<Stuff, Long> {
     }
     public Stuff findByGroupId(Long id) throws Exception{
         Query query = entityManager.createNamedQuery("Stuff.FindByGroupId");
-        query.setParameter("group.id",id);
+        query.setParameter("id",id);
         return (Stuff) query.getSingleResult();
     }
     public Stuff byGroupName(String title) throws Exception{
         Query query = entityManager.createNamedQuery("Stuff.FindByGroupName");
-        query.setParameter("group.title",title);
+        query.setParameter("title",title);
         return (Stuff) query.getSingleResult();
     }
 }
