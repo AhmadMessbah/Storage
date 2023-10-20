@@ -5,6 +5,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -13,16 +14,19 @@ public class GroupService{
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
 
+    @Transactional
     public Group save(Group group) throws Exception {
         entityManager.persist(group);
         return group;
     }
 
+    @Transactional
     public Group edit(Group group) throws Exception {
         entityManager.merge(group);
         return group;
     }
 
+    @Transactional
     public Group remove(Integer id) throws Exception {
         Group group = entityManager.find(Group.class,id);
         group.setDeleted(true);
@@ -30,24 +34,27 @@ public class GroupService{
         return group;
     }
 
+    @Transactional
     public List<Group> findAll() {
         Query query = entityManager.createQuery("select oo from groupEntity oo");
         return query.getResultList();
     }
 
+    @Transactional
     public Group findById(Integer id)  {
 
         return entityManager.find(Group.class,id);
     }
 
 
-
+    @Transactional
     public Group findByParentId( int id){
         Query query = entityManager.createNamedQuery("Group.FindByParentId");
-        query.setParameter("parent.id" , id);
+        query.setParameter("parentId" , id);
         return (Group) query.getSingleResult();
 
     }
+    @Transactional
     public List<Group> findRootParents() {
         Query query = entityManager.createNamedQuery("Group.FindRootParents");
         return query.getResultList();

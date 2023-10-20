@@ -1,7 +1,6 @@
 package com.mftplus.storage.model.service;
 
 import com.mftplus.storage.model.entity.Feature;
-import com.mftplus.storage.model.entity.Group;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -57,7 +56,7 @@ public class FeatureService implements ServiceImpl<Feature, Long>, Serializable 
 
     public Feature findByName(String featureName) throws Exception {
         Query query = entityManager.createNamedQuery("Feature.FindByName");
-        query.setParameter("FeatureName",featureName);
+        query.setParameter("featureName",featureName);
         return (Feature) query.getSingleResult();
     }
     public Feature findByGroupId(Long id){

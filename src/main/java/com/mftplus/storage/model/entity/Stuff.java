@@ -23,7 +23,7 @@ public class Stuff extends Base {
     private Long id;
 
     @Column(name = "s_name")
-    @Pattern(regexp = "^[a-zA-z1-9]$" , message = "invalid name!")
+    @Pattern(regexp = "^[\\w]]{2,30}$" , message = "invalid name!")
     private String name;
 
     @OneToOne

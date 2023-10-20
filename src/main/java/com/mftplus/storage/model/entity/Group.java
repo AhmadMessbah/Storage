@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @Table(name="group_tbl")
 
 @NamedQueries({
-        @NamedQuery(name="Group.FindByParentId", query = "select oo from groupEntity oo where oo.parent.id=:parentId"),
+        @NamedQuery(name="Group.FindByParentId", query = "select oo from groupEntity oo  where oo.parent.id=:parentId"),
         @NamedQuery(name="Group.FindRootParents", query = "select oo from groupEntity oo where oo.parent.id is null")
 })
 public class Group extends Base {
