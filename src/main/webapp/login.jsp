@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="j_security_check">
+<form action="j_security_check" method="post">
     <label for="userId">UserName</label>
     <input id="userId" type="text" name="j_username">
     <label for="passId">Password</label>
