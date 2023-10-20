@@ -61,4 +61,10 @@ public class PersonService implements ServiceImpl<Person, Long> {
     public int getCount() throws Exception {
         return 0;
     }
+    public Person findByNameFamily(String name , String family){
+        Query query = entityManager.createNamedQuery("Person.FindByNameFamily");
+        query.setParameter("name" , name);
+        query.setParameter("family" , family);
+        return(Person) query.getSingleResult();
+    }
 }
