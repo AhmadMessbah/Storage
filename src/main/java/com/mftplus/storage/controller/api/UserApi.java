@@ -21,7 +21,7 @@ public class UserApi {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(Application.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response save(Person person, User user) throws Exception {
         if (person != null){
             if (user != null){
