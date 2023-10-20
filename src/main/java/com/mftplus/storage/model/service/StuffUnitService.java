@@ -11,7 +11,7 @@ import jakarta.transaction.Transactional;
 
 import java.util.List;
 
-public class StuffUnitService implements ServiceImpl<StuffUnit, Long> {
+public class StuffUnitService implements ServiceImpl<StuffUnit, Integer> {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
 
@@ -31,7 +31,7 @@ public class StuffUnitService implements ServiceImpl<StuffUnit, Long> {
 
     @Override
     @Transactional
-    public StuffUnit remove(Long id) throws Exception {
+    public StuffUnit remove(Integer id) throws Exception {
         StuffUnit stuffUnit = entityManager.find(StuffUnit.class,id);
         stuffUnit.setDeleted(true);
         entityManager.merge(stuffUnit);
@@ -47,7 +47,7 @@ public class StuffUnitService implements ServiceImpl<StuffUnit, Long> {
 
     @Override
     @Transactional
-    public StuffUnit findById(Long id) throws Exception {
+    public StuffUnit findById(Integer id) throws Exception {
         return entityManager.find(StuffUnit.class,id);
     }
 

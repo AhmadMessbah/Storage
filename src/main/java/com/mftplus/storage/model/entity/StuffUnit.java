@@ -12,14 +12,18 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 
+@NamedQueries({@NamedQuery(name="StuffUnit.FindByName",query = "select oo from stuffUnitEntity oo where oo.unitName =:unitName")})
+
 @Table(name="stuff_unit_tbl")
-@Entity(name = "stuffUnit")
+@Entity(name = "stuffUnitEntity")
 public class StuffUnit extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "su_unitName")
-//    @Pattern()
+    @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invaild Unit Name")
     private String unitName;
+
+
 }

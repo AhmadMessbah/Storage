@@ -1,5 +1,6 @@
 package com.mftplus.storage.controller.api;
 
+import com.mftplus.storage.model.entity.FeatureValue;
 import com.mftplus.storage.model.service.FeatureValueService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -42,7 +43,7 @@ import jakarta.ws.rs.core.Response;
         @DELETE
         @Path("/{id}")
         @Produces(MediaType.APPLICATION_JSON)
-        public Response remove(@PathParam("id") Integer id) {
+        public Response remove(@PathParam("id") Long id) {
             try {
                 return Response.ok().entity(featurevalueService.remove(id)).build();
             } catch (Exception e) {
@@ -73,7 +74,7 @@ import jakarta.ws.rs.core.Response;
             System.out.println(id);
 
             try {
-                return Response.ok().entity(featurevalueService.findById(Integer.valueOf(id))).build();
+                return Response.ok().entity(featurevalueService.findById(Long.valueOf(id))).build();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
