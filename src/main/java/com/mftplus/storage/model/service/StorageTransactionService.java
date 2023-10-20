@@ -76,7 +76,7 @@ public class StorageTransactionService implements ServiceImpl<StorageTransaction
         query.setParameter("transactionDate",transactionDate);
         return (StorageTransaction) query.getSingleResult();
     }
-    public StorageTransaction findByUserId(String userId){
+    public StorageTransaction findByUserId(int userId){
         Query query=entityManager.createNamedQuery("Storage.FindByUserId");
         query.setParameter("userId",userId);
         return (StorageTransaction) query.getSingleResult();
