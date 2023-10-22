@@ -24,7 +24,7 @@ import java.time.LocalDateTime;
 })
 @Table(name = "payment_tbl")
 @Entity(name = "paymentEntity")
-public class Payment {
+public class Payment extends Base{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

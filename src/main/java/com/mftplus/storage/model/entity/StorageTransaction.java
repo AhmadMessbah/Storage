@@ -29,10 +29,10 @@ public class StorageTransaction extends Base {
     private long id;
 
     @Column(name = "st_entrance")
-    private LocalDateTime entrance;
+    private long entrance;
 
     @Column(name = "st_outlet")
-    private LocalDateTime outlet;
+    private long outlet;
 
     @Column(name = "st_stock")
     private long stock;
