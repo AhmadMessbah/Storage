@@ -7,9 +7,8 @@
 </head>
 <body>
 <div class="container-fluid">
-    <p style="font-family: 'B Yekan'">قسمت اصلی سایت</p>
+    <p style="font-family: 'B Yekan',serif">قسمت اصلی سایت</p>
     <button class="btn btn-primary" onclick="fet()"><i class="fa fa-remove"></i> Test</button>
-    <button onclick="wsConnect()">WebSocket</button>
 </div>
 <script>
     async function fet() {
@@ -29,7 +28,7 @@
 </script>
 
 <script>
-    const webSocket = new WebSocket('ws://localhost/websocketendpoint');
+    const webSocket = new WebSocket('ws://localhost/websocket');
 
     webSocket.onerror = function (event) {
         onError(event)

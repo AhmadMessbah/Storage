@@ -11,7 +11,7 @@ import jakarta.ws.rs.core.Response;
 
 import javax.inject.Inject;
 
-@Path("/Unit")
+@Path("/unit")
 public class StuffUnitApi {
     @Inject
     private StuffUnitService stuffUnitService;

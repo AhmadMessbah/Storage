@@ -1,6 +1,5 @@
 package com.mftplus.storage.model.entity;
 
-import jakarta.enterprise.context.SessionScoped;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
@@ -30,9 +29,4 @@ public class Person extends Base{
     @Column(name="p_family",length = 30)
     @Pattern(regexp = "^[a-zA-Z\\s]{0,20}$", message = "Invalid Family")
     private String family;
-
-    public Person(String name, String family) {
-        this.name = name;
-        this.family = family;
-    }
 }

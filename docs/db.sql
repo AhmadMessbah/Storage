@@ -1,5 +1,4 @@
-alter
-session set "_oracle_script" = true;
+alter session set "_oracle_script" = true;
 
 create user mft identified by java123;
 
@@ -33,3 +32,4 @@ create table LOGS_TBL
 create sequence logs_seq start with 1 increment by 1;
 
 commit;
+

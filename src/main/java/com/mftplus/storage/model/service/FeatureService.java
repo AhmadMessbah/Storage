@@ -1,7 +1,6 @@
 package com.mftplus.storage.model.service;
 
 import com.mftplus.storage.model.entity.Feature;
-import com.mftplus.storage.model.entity.Group;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -55,25 +54,25 @@ public class FeatureService implements ServiceImpl<Feature, Long>, Serializable 
         return entityManager.find(Feature.class, id);
     }
 
-    public Feature findByName(String featureName) throws Exception {
+    public Feature findByName(String featureName) {
         Query query = entityManager.createNamedQuery("Feature.FindByName");
-        query.setParameter("FeatureName",featureName);
-        return (Feature) query.getSingleResult();
-    }
-    public Feature findByGroupId(Long id){
-        Query query=entityManager.createNamedQuery("Feature.FindByGroupId");
-        query.setParameter("groupId",id);
-        return (Feature) query.getSingleResult();
-    }
-    public Feature FindByGroupTitle(String groupTitle){
-        Query query=entityManager.createNamedQuery("Feature.FindByGroupTitle");
-        query.setParameter("groupTitle",groupTitle);
+        query.setParameter("featureName", featureName);
         return (Feature) query.getSingleResult();
     }
 
+    public Feature findByGroupId(Long id) {
+        Query query = entityManager.createNamedQuery("Feature.FindByGroupId");
+        query.setParameter("groupId", id);
+        return (Feature) query.getSingleResult();
+    }
+
+    public Feature FindByGroupTitle(String groupTitle) {
+        Query query = entityManager.createNamedQuery("Feature.FindByGroupTitle");
+        query.setParameter("groupTitle", groupTitle);
+        return (Feature) query.getSingleResult();
+    }
 
     @Override
-
     public int getCount() throws Exception {
         return 0;
     }

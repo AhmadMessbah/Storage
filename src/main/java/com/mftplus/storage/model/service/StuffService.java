@@ -10,8 +10,8 @@ import jakarta.transaction.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
-@ApplicationScoped
 
+@ApplicationScoped
 public class StuffService implements ServiceImpl<Stuff, Long>, Serializable {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
@@ -33,7 +33,7 @@ public class StuffService implements ServiceImpl<Stuff, Long>, Serializable {
     @Override
     @Transactional
     public Stuff remove(Long id) throws Exception {
-        Stuff stuff = entityManager.find(Stuff.class,id);
+        Stuff stuff = entityManager.find(Stuff.class, id);
         stuff.setDeleted(true);
         entityManager.merge(stuff);
         return stuff;
@@ -49,7 +49,7 @@ public class StuffService implements ServiceImpl<Stuff, Long>, Serializable {
     @Override
     @Transactional
     public Stuff findById(Long id) throws Exception {
-        return entityManager.find(Stuff.class,id);
+        return entityManager.find(Stuff.class, id);
     }
 
     @Override
@@ -57,19 +57,25 @@ public class StuffService implements ServiceImpl<Stuff, Long>, Serializable {
     public int getCount() throws Exception {
         return 0;
     }
-    public Stuff findByName(String name) throws  Exception{
+
+    @Transactional
+    public Stuff findByName(String name) {
         Query query = entityManager.createNamedQuery("Stuff.FindByName");
-        query.setParameter("name",name);
+        query.setParameter("name", name);
         return (Stuff) query.getSingleResult();
     }
-    public Stuff findByGroupId(Long groupId) throws Exception{
+
+    @Transactional
+    public Stuff findByGroupId(Long groupId) {
         Query query = entityManager.createNamedQuery("Stuff.FindByGroupId");
-        query.setParameter("groupId",groupId);
+        query.setParameter("groupId", groupId);
         return (Stuff) query.getSingleResult();
     }
-    public Stuff byGroupTitle(String groupTitle) throws Exception{
+
+    @Transactional
+    public Stuff byGroupTitle(String groupTitle) {
         Query query = entityManager.createNamedQuery("Stuff.FindByGroupTitle");
-        query.setParameter("groupTitle",groupTitle);
+        query.setParameter("groupTitle", groupTitle);
         return (Stuff) query.getSingleResult();
     }
 }

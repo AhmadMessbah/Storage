@@ -18,9 +18,6 @@ public class RoleApi {
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(Role role) {
         try {
-//            BeanValidator<Role> validator = new BeanValidator<>();
-//            validator.validate(role);
-
             return Response.ok().entity(roleService.save(role)).build();
         } catch (Exception e) {
             return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
@@ -55,14 +52,10 @@ public class RoleApi {
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll() {
         try {
-            System.out.println("OUTPUT : "+roleService.findAll());
+            System.out.println("OUTPUT : " + roleService.findAll());
             return Response.ok().entity(roleService.findAll()).build();
-//        }catch (NoContentException e){
-//            return Response.noContent().build();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}") .build();
+        } catch (Exception e) {
+            return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }
     }
 
@@ -70,42 +63,10 @@ public class RoleApi {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response findById(@PathParam("id") String id) {
-        System.out.println("FindById");
-        System.out.println(id);
-
         try {
             return Response.ok().entity(roleService.findById(Long.valueOf(id))).build();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
             return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }
     }
-
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Path("/parent")
-//    public Response findByParents() {
-//        try {
-//            return Response.ok().entity(roleService.findParents()).build();
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//            return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
-//        }
-//    }
-//
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Path("/parent/{parentId}")
-//    public Response findByParentId(@PathParam("parentId") String parentId) {
-//        System.out.println("FindByParentId");
-//        System.out.println(parentId);
-//        try {
-//            return Response.ok().entity(roleService.findByParentId(Integer.valueOf(parentId))).build();
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//            e.printStackTrace();
-//            return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
-//        }
-//    }
 }

@@ -1,6 +1,5 @@
 package com.mftplus.storage.model.service;
 
-import com.mftplus.storage.model.entity.Feature;
 import com.mftplus.storage.model.entity.FeatureValue;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -11,11 +10,13 @@ import jakarta.transaction.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
+
 @ApplicationScoped
 
-public class FeatureValueService implements ServiceImpl<FeatureValue, Long> , Serializable {
+public class FeatureValueService implements ServiceImpl<FeatureValue, Long>, Serializable {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
+
     @Override
     @Transactional
     public FeatureValue save(FeatureValue user) throws Exception {
@@ -33,7 +34,7 @@ public class FeatureValueService implements ServiceImpl<FeatureValue, Long> , Se
     @Override
     @Transactional
     public FeatureValue remove(Long id) throws Exception {
-        FeatureValue featureValue = entityManager.find(FeatureValue.class,id);
+        FeatureValue featureValue = entityManager.find(FeatureValue.class, id);
         featureValue.setDeleted(true);
         entityManager.merge(featureValue);
         return featureValue;
@@ -49,22 +50,23 @@ public class FeatureValueService implements ServiceImpl<FeatureValue, Long> , Se
     @Override
     @Transactional
     public FeatureValue findById(Long id) throws Exception {
-        return entityManager.find(FeatureValue.class,id);
+        return entityManager.find(FeatureValue.class, id);
     }
 
-    public FeatureValue findByName (String value ){
-        Query query=entityManager.createNamedQuery("FeatureValue.FindByName");
-        query.setParameter("Value", value);
+    public FeatureValue findByName(String value) {
+        Query query = entityManager.createNamedQuery("FeatureValue.FindByName");
+        query.setParameter("value", value);
         return (FeatureValue) query.getSingleResult();
     }
 
-    public FeatureValue findByGroupId(Long id){
-        Query query=entityManager.createNamedQuery("FeatureValue.FindByGroupId");
+    public FeatureValue findByGroupId(Long id) {
+        Query query = entityManager.createNamedQuery("FeatureValue.FindByGroupId");
         query.setParameter("groupId", id);
         return (FeatureValue) query.getSingleResult();
     }
-    public FeatureValue FindByGroupTitle(String groupTitle){
-        Query query=entityManager.createNamedQuery("FeatureValue.FindByGroupTitle");
+
+    public FeatureValue FindByPrentTitle(String groupTitle) {
+        Query query = entityManager.createNamedQuery("FeatureValue.FindByGroupTitle");
         query.setParameter("groupTitle", groupTitle);
         return (FeatureValue) query.getSingleResult();
     }
