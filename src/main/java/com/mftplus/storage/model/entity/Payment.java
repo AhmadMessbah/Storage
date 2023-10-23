@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
         @NamedQuery(name = "Payment.FindByUserName" , query = "select oo from paymentEntity  oo where user.userName=:userName"),
         @NamedQuery(name = "Payment.FindByPaymentType", query = "select oo from paymentEntity oo where oo.paymentType= :paymentType"),
         @NamedQuery(name = "Payment.SumAmount", query = "select sum(oo.invoice.amount) from paymentEntity oo where oo.paymentTimeStamp between :startTimeStamp and :endTimeStamp"),
-        @NamedQuery(name = "Payment.indByDateRange", query = "select oo from paymentEntity oo where oo.paymentTimeStamp between :startTimeStamp and :endTimeStamp"),
+        @NamedQuery(name = "Payment.FindByDateRange", query = "select oo from paymentEntity oo where oo.paymentTimeStamp between :startTimeStamp and :endTimeStamp"),
         @NamedQuery(name = "Payment.FindByInvoiceNumber" , query = "select oo from paymentEntity oo where oo.invoice.invoiceNumber=:invoiceNumber"),
 
 })
