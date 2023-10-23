@@ -1,6 +1,7 @@
 package com.mftplus.storage.model.service;
 
 import com.mftplus.storage.model.entity.Payment;
+import com.mftplus.storage.model.entity.enums.PaymentType;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -82,8 +83,27 @@ public class PaymentService implements ServiceImpl<Payment, Long>, Serializable 
         Query query = entityManager.createNamedQuery("Payment.FindByUserName");
         query.setParameter("userName", userName);
         return (Payment) query.getSingleResult();}
+
     //    -------------------------------------------------------------------------
 
+    @Transactional
+    public List<Payment> findByPaymentType(PaymentType paymentType){
+        Query query = entityManager.createNamedQuery("Payment.FindByPaymentType");
+        query.setParameter("paymentType",paymentType);
+        return query.getResultList();
+    }
+
+    //    -------------------------------------------------------------------------
+
+    @Transactional
+    public List<Payment> SumAmount(LocalDateTime startTimeStamp,LocalDateTime endTimeStamp){
+        Query query = entityManager.createNamedQuery("Payment.SumAmount");
+        query .setParameter("startTimeStamp",startTimeStamp);
+        query .setParameter("endTimeStamp",endTimeStamp);
+        return query.getResultList();
+    }
+
+    //    -------------------------------------------------------------------------
 
     @Transactional
     public List<Payment> findByDateRange(LocalDateTime startTimeStamp, LocalDateTime endTimeStamp){
@@ -92,20 +112,9 @@ public class PaymentService implements ServiceImpl<Payment, Long>, Serializable 
         query.setParameter("endTimeStamp", endTimeStamp);
         return query.getResultList();
     }
+
     //    -------------------------------------------------------------------------
 
-    @Transactional
-    public List<Payment> SumAmount(){
-        return null;
-    }
-    //    -------------------------------------------------------------------------
-
-
-    @Transactional
-    public List<Payment> findByPaymentType(){
-        return null;
-    }
-    //    -------------------------------------------------------------------------
 
     @Transactional
     public Payment findByInvoiceNumber(Long id){
