@@ -14,49 +14,60 @@ import java.util.List;
 @ApplicationScoped
 
 public class RoleService implements ServiceImpl<Role, Long>, Serializable {
+
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
 
-    @Override
+    //    -------------------------------------------------------------------------
+
     @Transactional
+    @Override
     public Role save(Role role) throws Exception {
         entityManager.persist(role);
         return role;
 
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
     @Transactional
+    @Override
     public Role edit(Role role) throws Exception {
         entityManager.merge(role);
         return role;
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
     @Transactional
+    @Override
     public Role remove(Long id) throws Exception {
         Role role = entityManager.find(Role.class, id);
         role.setDeleted(true);
         entityManager.merge(role);
         return role;
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
     @Transactional
+    @Override
     public List<Role> findAll() throws Exception {
         Query query = entityManager.createQuery("select oo from roleEntity oo");
         return query.getResultList();
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
+
     @Transactional
+    @Override
     public Role findById(Long id) throws Exception {
         return entityManager.find(Role.class, id);
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
     @Transactional
+    @Override
     public int getCount() throws Exception {
         return 0;
     }
+    //    -------------------------------------------------------------------------
+
 }
