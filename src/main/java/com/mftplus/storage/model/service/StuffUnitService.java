@@ -14,25 +14,32 @@ import java.util.List;
 @ApplicationScoped
 
 public class StuffUnitService implements ServiceImpl<StuffUnit, Integer>, Serializable {
+
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
 
-    @Override
+    //    -------------------------------------------------------------------------
+
     @Transactional
+    @Override
     public StuffUnit save(StuffUnit stuffUnit) throws Exception {
         entityManager.persist(stuffUnit);
         return stuffUnit;
     }
 
-    @Override
+    //    -------------------------------------------------------------------------
+
     @Transactional
+    @Override
     public StuffUnit edit(StuffUnit stuffUnit) throws Exception {
         entityManager.merge(stuffUnit);
         return stuffUnit;
     }
 
-    @Override
+    //    -------------------------------------------------------------------------
+
     @Transactional
+    @Override
     public StuffUnit remove(Integer id) throws Exception {
         StuffUnit stuffUnit = entityManager.find(StuffUnit.class, id);
         stuffUnit.setDeleted(true);
@@ -40,28 +47,39 @@ public class StuffUnitService implements ServiceImpl<StuffUnit, Integer>, Serial
         return stuffUnit;
     }
 
-    @Override
+    //    -------------------------------------------------------------------------
+
     @Transactional
+    @Override
     public List<StuffUnit> findAll() throws Exception {
         Query query = entityManager.createQuery("select oo from stuffUnitEntity oo");
         return query.getResultList();
     }
 
-    @Override
+    //    -------------------------------------------------------------------------
+
     @Transactional
+    @Override
     public StuffUnit findById(Integer id) throws Exception {
         return entityManager.find(StuffUnit.class, id);
     }
 
-    @Override
+    //    -------------------------------------------------------------------------
+
     @Transactional
+    @Override
     public int getCount() throws Exception {
         return 0;
     }
 
+    //    -------------------------------------------------------------------------
+
+    @Transactional
     public StuffUnit FindByName(String unitName) {
         Query query = entityManager.createNamedQuery("StuffUnit.FindByName");
         query.setParameter("unitName", unitName);
         return (StuffUnit) query.getSingleResult();
     }
+    //    -------------------------------------------------------------------------
+
 }
