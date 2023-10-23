@@ -17,82 +17,114 @@ import java.util.List;
 public class StorageTransactionService implements ServiceImpl<StorageTransaction, Long>, Serializable {
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
+    //    -------------------------------------------------------------------------
 
-    @Override
+
     @Transactional
+    @Override
     public StorageTransaction save(StorageTransaction storageTransaction) throws Exception {
         entityManager.persist(storageTransaction);
         return storageTransaction;
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
+
     @Transactional
+    @Override
     public StorageTransaction edit(StorageTransaction storageTransaction) throws Exception {
         entityManager.merge(storageTransaction);
         return storageTransaction;
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
+
     @Transactional
+    @Override
     public StorageTransaction remove(Long id) throws Exception {
         StorageTransaction storageTransaction = entityManager.find(StorageTransaction.class, id);
         storageTransaction.setDeleted(true);
         entityManager.merge(storageTransaction);
         return storageTransaction;
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
+
     @Transactional
+    @Override
     public List<StorageTransaction> findAll() throws Exception {
         Query query = entityManager.createQuery("select oo from storageTransactionEntity oo");
         return query.getResultList();
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
+
     @Transactional
+    @Override
     public StorageTransaction findById(Long id) throws Exception {
         return entityManager.find(StorageTransaction.class, id);
     }
+    //    -------------------------------------------------------------------------
 
-    @Override
+
     @Transactional
+    @Override
     public int getCount() throws Exception {
         return 0;
     }
+    //    -------------------------------------------------------------------------
 
+
+    @Transactional
     public StorageTransaction findByStock(String stuffName) {
         Query query = entityManager.createNamedQuery("Storage.FindByStock");
         query.setParameter("stuffName", stuffName);
         return (StorageTransaction) query.getSingleResult();
     }
+    //    -------------------------------------------------------------------------
 
-    public StorageTransaction findByEntrance(LocalDateTime entrance) {
+
+    @Transactional
+    public StorageTransaction findByEntrance(Long entrance) {
         Query query = entityManager.createNamedQuery("Storage.FindByEntrance");
         query.setParameter("entrance", entrance);
         return (StorageTransaction) query.getSingleResult();
     }
+    //    -------------------------------------------------------------------------
 
-    public StorageTransaction findByExit(LocalDateTime exit) {
+
+    @Transactional
+    public StorageTransaction findByExit(Long exit) {
         Query query = entityManager.createNamedQuery("Storage.FindByExit");
         query.setParameter("exit", exit);
         return (StorageTransaction) query.getSingleResult();
     }
+    //    -------------------------------------------------------------------------
 
+
+    @Transactional
     public StorageTransaction findByTransactionDate(LocalDateTime transactionDate) {
         Query query = entityManager.createNamedQuery("Storage.FindByTransactionDate");
         query.setParameter("transactionDate", transactionDate);
         return (StorageTransaction) query.getSingleResult();
     }
+    //    -------------------------------------------------------------------------
 
+
+    @Transactional
     public StorageTransaction findByUserId(int userId) {
         Query query = entityManager.createNamedQuery("Storage.FindByUserId");
         query.setParameter("userId", userId);
         return (StorageTransaction) query.getSingleResult();
     }
+    //    -------------------------------------------------------------------------
 
+
+    @Transactional
     public StorageTransaction findByStuffName(String stuffName) {
         Query query = entityManager.createNamedQuery("Storage.FindByStuffName");
         query.setParameter("stuffName", stuffName);
         return (StorageTransaction) query.getSingleResult();
     }
+    //    -------------------------------------------------------------------------
+
 }
