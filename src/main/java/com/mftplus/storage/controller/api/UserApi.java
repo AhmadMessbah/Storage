@@ -11,7 +11,7 @@ import jakarta.ws.rs.core.Response;
 
 import javax.inject.Inject;
 
-@Path("/api/user")
+@Path("/user")
 public class UserApi {
 
     @Inject
