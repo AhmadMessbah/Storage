@@ -1,9 +1,7 @@
 package com.mftplus.storage.controller.api;
 
-import com.mftplus.storage.model.entity.Invoice;
 import com.mftplus.storage.model.entity.InvoiceItem;
 import com.mftplus.storage.model.service.InvoiceItemService;
-import com.mftplus.storage.model.service.InvoiceService;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -11,7 +9,7 @@ import jakarta.ws.rs.core.Response;
 import javax.inject.Inject;
 
 @Path("/invoiceItem")
-public class invoiceItemApi {
+public class InvoiceItemApi {
     @Inject
     private InvoiceItemService invoiceItemService;
 
