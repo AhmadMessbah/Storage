@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 public class User extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     @Column(name = "u_username", length = 20, unique = true)
     @Pattern(regexp = "^[A-Za-z]{10,30}$", message = "Invalid UserName")
