@@ -18,7 +18,8 @@ import java.time.LocalDateTime;
         @NamedQuery(name="Storage.FindByExit", query = "select oo from storageTransactionEntity oo where oo.outlet=:exit") ,
         @NamedQuery(name="Storage.FindByTransactionDate", query = "select oo from storageTransactionEntity oo where oo.transactionTimeStamp =:transactionDate"),
         @NamedQuery(name="Storage.FindByUserId", query = "select oo from storageTransactionEntity oo where oo.user.id =:userId"),
-        @NamedQuery(name="Storage.FindByStuffName", query = "select oo from storageTransactionEntity oo where oo.stuff.name =:stuffName")})
+        @NamedQuery(name="Storage.FindByStuffName", query = "select oo from storageTransactionEntity oo where oo.stuff.name =:stuffName"),
+        @NamedQuery(name="Storage.FindByStuffId", query = "select oo from storageTransactionEntity oo where oo.stuff.id =:stuffId")})
 
 
 @Table(name = "Storage_transaction_tbl")
