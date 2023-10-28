@@ -1,17 +1,12 @@
 package com.mftplus.storage.model.entity;
 
-import com.mftplus.storage.model.entity.Base;
-import com.mftplus.storage.model.entity.Invoice;
-import com.mftplus.storage.model.entity.Payment;
-import com.mftplus.storage.model.entity.User;
+
 import com.mftplus.storage.model.entity.enums.PaymentType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-
-import javax.batch.api.chunk.listener.AbstractItemProcessListener;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
