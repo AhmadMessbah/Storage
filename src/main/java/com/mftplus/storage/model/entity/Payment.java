@@ -2,6 +2,7 @@ package com.mftplus.storage.model.entity;
 
 import com.mftplus.storage.model.entity.enums.PaymentType;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,6 +41,7 @@ public class Payment extends Base{
     private PaymentType paymentType;
 
     @Column(name = "p_description")
+    @Pattern(regexp = "^[A-Za-zا-ی\\s]{1,255}$", message = "Invalid description")
     private String description;
 
     @Column(name = "p_payment_time_stamp")

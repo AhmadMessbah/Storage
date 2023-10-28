@@ -22,7 +22,7 @@ public class StuffUnit extends Base {
     private int id;
 
     @Column(name = "su_unitName")
-    @Pattern(regexp = "^[A-Za-z]{2,30}$", message = "Invalid Unit Name")
+    @Pattern(regexp = "^[A-Za-zا-ی\\s]{2,30}$", message = "Invalid Unit Name")
     private String unitName;
 
 

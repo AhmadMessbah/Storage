@@ -23,10 +23,10 @@ public class Person extends Base{
     private long id;
 
     @Column(name="p_name",length = 30)
-    @Pattern(regexp = "^[a-zA-Z\\s]{0,20}$", message = "Invalid Name")
+    @Pattern(regexp = "^[A-Za-zا-ی\\s]{1,20}$", message = "Invalid Name")
     private String name;
 
     @Column(name="p_family",length = 30)
-    @Pattern(regexp = "^[a-zA-Z\\s]{0,20}$", message = "Invalid Family")
+    @Pattern(regexp = "^[A-Za-zا-ی\\s]{1,20}$", message = "Invalid Family")
     private String family;
 }
