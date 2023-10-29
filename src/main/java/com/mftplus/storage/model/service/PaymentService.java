@@ -24,7 +24,7 @@ public class PaymentService implements ServiceImpl<Payment, Long>, Serializable 
     @Transactional
     @Override
     public Payment save(Payment payment) throws Exception {
-        entityManager.merge(payment);
+        entityManager.persist(payment);
         return payment;
     }
 //    -------------------------------------------------------------------------
