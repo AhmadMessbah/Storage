@@ -126,5 +126,10 @@ public class StorageTransactionService implements ServiceImpl<StorageTransaction
         return (StorageTransaction) query.getSingleResult();
     }
     //    -------------------------------------------------------------------------
-
+    @Transactional
+    public StorageTransaction findByStuffId(Long stuffId) {
+        Query query = entityManager.createNamedQuery("Storage.FindByStuffId");
+        query.setParameter("stuffId", stuffId);
+        return (StorageTransaction) query.getSingleResult();
+    }
 }
