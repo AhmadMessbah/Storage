@@ -57,6 +57,7 @@ public class GroupService implements ServiceImpl<Group,Integer> , Serializable {
     @Transactional
     @Override
     public Group findById(Integer id) {
+
         return entityManager.find(Group.class, id);
     }
     //    -------------------------------------------------------------------------
