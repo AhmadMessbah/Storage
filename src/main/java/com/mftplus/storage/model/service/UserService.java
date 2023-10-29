@@ -14,7 +14,7 @@ import java.util.List;
 
 @ApplicationScoped
 
-public class UserService implements ServiceImpl<User, Integer>, Serializable {
+public class UserService implements ServiceImpl<User, Long>, Serializable {
 
     @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
@@ -41,7 +41,7 @@ public class UserService implements ServiceImpl<User, Integer>, Serializable {
 
     @Transactional
     @Override
-    public User remove(Integer id) throws Exception {
+    public User remove(Long id) throws Exception {
         User user = entityManager.find(User.class, id);
         user.setDeleted(true);
         entityManager.merge(user);
@@ -61,7 +61,7 @@ public class UserService implements ServiceImpl<User, Integer>, Serializable {
 
     @Transactional
     @Override
-    public User findById(Integer id) throws Exception {
+    public User findById(Long id) throws Exception {
         return entityManager.find(User.class, id);
     }
 
