@@ -111,7 +111,7 @@ public class StorageTransactionService implements ServiceImpl<StorageTransaction
 
 
     @Transactional
-    public StorageTransaction findByUserId(int userId) {
+    public StorageTransaction findByUserId(Long userId) {
         Query query = entityManager.createNamedQuery("Storage.FindByUserId");
         query.setParameter("userId", userId);
         return (StorageTransaction) query.getSingleResult();
