@@ -2,7 +2,6 @@ package com.mftplus.storage.model.service;
 
 import com.mftplus.storage.model.entity.Financial;
 import jakarta.enterprise.context.ApplicationScoped;
-import com.mftplus.storage.model.entity.Financial;
 import com.mftplus.storage.model.service.impl.ServiceImpl;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -27,6 +26,8 @@ public class FinancialService implements ServiceImpl<Financial,Long> , Serializa
         entityManager.persist(financial);
         return financial;
     }
+    //    -------------------------------------------------------------------------
+
 
     @Transactional
     @Override
@@ -34,6 +35,8 @@ public class FinancialService implements ServiceImpl<Financial,Long> , Serializa
         entityManager.merge(financial);
         return financial;
     }
+    //    -------------------------------------------------------------------------
+
 
     @Transactional
     @Override
@@ -43,6 +46,8 @@ public class FinancialService implements ServiceImpl<Financial,Long> , Serializa
         entityManager.merge(financial);
         return financial;
     }
+    //    -------------------------------------------------------------------------
+
 
     @Transactional
     @Override
@@ -50,12 +55,16 @@ public class FinancialService implements ServiceImpl<Financial,Long> , Serializa
         Query query = entityManager.createQuery("select oo from financialEntity oo");
         return query.getResultList();
     }
+    //    -------------------------------------------------------------------------
+
 
     @Transactional
     @Override
     public Financial findById(Long id) throws Exception {
         return entityManager.find(Financial.class, id);
     }
+    //    -------------------------------------------------------------------------
+
 
     @Transactional
     @Override
