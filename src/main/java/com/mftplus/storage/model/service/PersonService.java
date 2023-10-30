@@ -31,7 +31,7 @@ public class PersonService implements ServiceImpl<Person, Long>, Serializable {
     @Transactional
     @Override
     public Person edit(Person person) throws Exception {
-        entityManager.persist(person);
+        entityManager.merge(person);
         return person;
 
     }
