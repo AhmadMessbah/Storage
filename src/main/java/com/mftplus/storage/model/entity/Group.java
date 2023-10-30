@@ -23,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 public class Group extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     @Pattern(regexp = "^[A-Za-zا-ی\\s]{2,20}$", message = "Invalid group title")
     @Column(name = "g_title", length = 30)
