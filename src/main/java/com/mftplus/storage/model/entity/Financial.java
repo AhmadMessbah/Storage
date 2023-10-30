@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Table(name="financial_tbl")
 
 @NamedQueries({
-//        @NamedQuery(name = "")
+//        @NamedQuery(name = "",query = "")
 })
 public class Financial extends Base {
     @Id
