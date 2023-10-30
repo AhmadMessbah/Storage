@@ -18,7 +18,6 @@ public class UserApi {
     private UserService userService;
 
     @POST
-    @Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(User user) throws Exception {
@@ -30,7 +29,6 @@ public class UserApi {
     }
 
     @PUT
-    @Path("/edit")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response edit(User user){
@@ -44,7 +42,7 @@ public class UserApi {
     }
 
     @DELETE
-    @Path("/delete/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response delete(@PathParam("id") Long id){
         try {
@@ -55,7 +53,6 @@ public class UserApi {
     }
 
     @GET
-    @Path("/findAll")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAll() {
         try {
@@ -72,7 +69,7 @@ public class UserApi {
 
     @GET()
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/findById/{id}")
+    @Path("/{id}")
     public Response findById(@PathParam("id") Long id) {
         try {
             return Response.ok().entity(userService.findById(id)).build();
