@@ -71,8 +71,6 @@ public class PersonApi {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/findById/{id}")
     public Response findById(@PathParam("id") Long id) {
-        System.out.println("FindById Method in UserApi");
-        System.out.println("Id : "+id);
         try {
             return Response.ok().entity(personService.findById(id)).build();
         } catch (Exception e) {

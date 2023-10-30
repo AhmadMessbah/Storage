@@ -46,11 +46,11 @@ public class UserApi {
     @DELETE
     @Path("/delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(@PathParam("id") Long id){ // TODO remove int DataType and replace it with Long
+    public Response delete(@PathParam("id") Long id){
         try {
             return Response.ok().entity(userService.remove(id)).build();
         } catch (Exception e) {
-            return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
+            return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }
     }
 
@@ -73,9 +73,7 @@ public class UserApi {
     @GET()
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/findById/{id}")
-    public Response findById(@PathParam("id") Long id) { // TODO remove int DataType and replace it with Long
-        System.out.println("FindById Method in UserApi");
-        System.out.println("Id : "+id);
+    public Response findById(@PathParam("id") Long id) {
         try {
             return Response.ok().entity(userService.findById(id)).build();
         } catch (Exception e) {
@@ -85,8 +83,4 @@ public class UserApi {
 
         }
     }
-
-
-
-
 }

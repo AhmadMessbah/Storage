@@ -71,7 +71,7 @@ public class StorageTransactionApi {
         try {
             return Response.ok().entity(storageTransactionService.findById(id)).build();
         } catch (Exception e) {
-            return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
+            return Response.status(204).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }
     }
 }
