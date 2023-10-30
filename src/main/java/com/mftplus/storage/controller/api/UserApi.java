@@ -36,6 +36,8 @@ public class UserApi {
     public Response edit(User user){
         try {
             return Response.ok().entity(userService.edit(user)).build();
+        } catch (NoContentException e) {
+            return Response.status(204).entity("{\"message\": \"No Content\"}").build();
         } catch (Exception e) {
             return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }

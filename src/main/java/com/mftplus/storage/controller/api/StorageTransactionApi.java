@@ -6,6 +6,7 @@ import com.mftplus.storage.model.service.PaymentService;
 import com.mftplus.storage.model.service.StorageTransactionService;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.NoContentException;
 import jakarta.ws.rs.core.Response;
 
 import javax.inject.Inject;
@@ -32,6 +33,8 @@ public class StorageTransactionApi {
     public Response edit(StorageTransaction storageTransaction) throws Exception {
         try {
             return Response.ok().entity(storageTransactionService.edit(storageTransaction)).build();
+        } catch (NoContentException e) {
+            return Response.status(204).entity("{\"message\": \"No Content\"}").build();
         } catch (Exception e) {
             return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }

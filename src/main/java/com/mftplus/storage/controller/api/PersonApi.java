@@ -33,6 +33,8 @@ public class PersonApi {
     public Response edit(Person person){
         try {
             return Response.ok().entity(personService.edit(person)).build();
+        } catch (NoContentException e) {
+            return Response.status(204).entity("{\"message\": \"No Content\"}").build();
         } catch (Exception e) {
             return Response.status(500).entity("{\"message\": \"" + e.getMessage() + "\"}").build();
         }
