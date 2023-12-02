@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" dir="rtl">
+    <!--                    Css Icon                 -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!--                    Css Sidbar                         -->
+    <meta http-equiv="X=UA-Compatible" content="ie=edge">
+    <meta name="viewport " content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/dashboardTwoPage.css">
+    <title>Payment Form</title>
+</head>
+<body>
+<div class="container" dir="rtl">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="earth-outline"></ion-icon></span>
+                    <span class="title">نام برند</span>
+                </a>
+            </li>
+            <li>
+                <a href="../HTMLDashboard/dashboard1.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">داشبورد</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">پروفایل</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                    <span class="title">گزارشات</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="title">اخبار</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="cog-outline"></ion-icon></span>
+                    <span class="title">ورود</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../HTMLForm/SignUp.html">
+                    <span class="icon"><ion-icon name="cog-outline"></ion-icon></span>
+                    <span class="title">ثبت نام</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../HTMLDashboard/centralRecruitment.html">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <span class="title">کارگزینی مرکزی</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">خروج</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!--    main   -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+
+
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="اینجا جست و جو کنید">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+
+            <!--            userImg-->
+
+            <div class="user">
+                <img src="../user.jpg">
+            </div>
+
+        </div>
+
+        <div class="container1" dir="rtl">
+            <header> فرم پرداخت</header>
+            <form action="/Payment" method="post">
+                <div class="form first">
+                    <div class="personal">
+
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>تا تاریخ</label>
+                                <input type="datetime-local" name="DateTill" required>
+                            </div>
+                            <div class="input-field">
+                                <label>از تاریخ</label>
+                                <input type="datetime-local" name="dateForm" required>
+                            </div>
+                            <div class="input-field">
+                                <label>سال</label>
+                                <input type="datetime-local" name="year" required>
+                            </div>
+                            <div class="input-field">
+                                <label>اضافه کاری</label>
+                                <input type="datetime-local" name="OverTime" required>
+                            </div>
+                            <div class="input-field">
+                                <label>حقوق پایه</label>
+                                <input type="number" name="BasicSalary" placeholder="حقوق پایه خود را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>شماره پرسنلی</label>
+                                <input type="number" name="Person" placeholder="شماره پرسنلی خود را وارد کنید" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ID">
+                        <span class="title">جزییات غیبت</span>
+
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>غیبت</label>
+                                <input type="datetime-local" name="AbsenceTime" required>
+                            </div>
+                            <div class="input-field">
+                                <label>زمان کارکرد</label>
+                                <input type="datetime-local" name="OperationTime" required>
+                            </div>
+                            <div class="input-field">
+                                <label>شمارش حقوق اضافه کاری</label>
+                                <input type="number" name="OverTimePayCount" placeholder="تعداد را وارد نمایید" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label>شمارش حقوق حین غیبت</label>
+                                <input type="number" name="AbsencepayCount" placeholder="تعداد را وارد نمایید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>شمارش پرداخت کارکرد</label>
+                                <input type="number" name="OperationPayCount" placeholder="تعداد را وارد نمایید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>مسکن</label>
+                                <input type="number" name="Housing" placeholder="مسکن خود را وارد نمایید" required>
+                            </div>
+                        </div>
+                        <button class="nextBTN">
+                            <i class="uil-navigator"></i>
+                            <span class="btnText">بعدی</span>
+                        </button>
+                    </div>
+                </div>
+                <!--    ////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class="form second">
+                    <div class="address">
+
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>مرخصی</label>
+                                <input type="list" name="LeaveDays" placeholder="مرخصی را وارد نمایید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>کسر حقوق روز های مرخصی</label>
+                                <input type="number" name="LeaveDaysPayDeduction" placeholder="Please Enter Your LeaveDays Pay Deduction" required>
+                            </div>
+                            <div class="input-field">
+                                <label> بهره وری</label>
+                                <input type="text" name="Benefits" placeholder=" بهره وری وارد نمایید" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label>پاداش مدیریت</label>
+                                <input type="number" name="ManagementBonus" placeholder="پاداش مدیریت را وراد نمایید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>هزینه کودک</label>
+                                <input type="number" name="Children Pay" placeholder="Pهزینه را وراد نمایید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>حق سنوات</label>
+                                <input type="number" name="SeverancePay" placeholder="سنوات خود را وراد کنید" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Family">
+                        <span class="title">جزئیات پرداخت</span>
+
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>بیمه</label>
+                                <input type="number" name="Insurance" placeholder="بیمه را وارد نمایید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>مالیات</label>
+                                <input type="number" name="Tax" placeholder="مالیات را وارد نمایید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>بدهی</label>
+                                <input type="number" name="Debt" placeholder="بدهی در یک سال را وراد کنید" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label>مجموع پرداختی</label>
+                                <input type="number" name="TotalPayment" placeholder="مجموع پرداختی را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>شماره تراکنش</label>
+                                <input type="number" name="Transaction Number" placeholder="شماره تراکنش را وراد نمایید" required>
+                            </div>
+                            <!--                    <div class="input-field">-->
+                            <!--                        <label>رنگ وضعیت</label>-->
+                            <!--                        <input type="color"  required>-->
+                            <!--                    </div>-->
+                        </div>
+                        <div class="bottom">
+                            <button class="nextBTN">
+                                <i class="uil-navigator"></i>
+                                <span class="btnText">تائید</span>
+                            </button>
+                            <div class="backBTN">
+                                <span class="btnText">بازگشت</span>
+                                <i class="uil-navigator"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="../JAVASCRIPT/nextBTN.js"></script>
+    </div>
+</div>
+</div>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script>
+
+    <!--    MenuToggle-->
+    let toggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    let main = document.querySelector('.main');
+
+
+    toggle.onclick = function (){
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+    }
+
+
+
+
+
+    <!--    add hovered class in selected list item-->
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink(){
+        list.forEach((item) =>
+            item.classList.remove('hovered'));
+        this.classList.add('hovered');
+    }
+    list.forEach((item) =>
+        item.addEventListener('mouseover', activeLink));
+</script>
+</body>
+</html>

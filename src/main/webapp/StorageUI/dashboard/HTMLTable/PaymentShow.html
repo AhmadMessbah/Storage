@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" dir="rtl">
+    <!--                    Css Sidbar                         -->
+    <meta http-equiv="X=UA-Compatible" content="ie=edge">
+    <meta name="viewport " content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/dashboardTable.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" dir="rtl">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="earth-outline"></ion-icon></span>
+                    <span class="title">نام برند</span>
+                </a>
+            </li>
+            <li>
+                <a href="../HTMLDashboard/dashboard1.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">داشبورد</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">پروفایل</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                    <span class="title">گزارشات</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="title">اخبار</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="cog-outline"></ion-icon></span>
+                    <span class="title">ورود</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../HTMLForm/SignUp.html">
+                    <span class="icon"><ion-icon name="cog-outline"></ion-icon></span>
+                    <span class="title">ثبت نام</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../HTMLDashboard/centralRecruitment.html">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <span class="title">کارگزینی مرکزی</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">خروج</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!--    main   -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+
+
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="اینجا جست و جو کنید">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+
+            <!--            userImg-->
+
+            <div class="user">
+                <img src="../user.jpg">
+            </div>
+
+        </div>
+        <div>
+            <table class="content-table" dir="rtl">
+                <thead>
+                <tr>
+                    <th>رتبه</th>
+                    <th>شماره پرسنلی</th>
+                    <th>سال</th>
+                    <th>از تاریخ</th>
+                    <th>تا تاریخ</th>
+                    <th>حقوق پایه</th>
+                    <th>اضافه کاری</th>
+                    <th>غیبت</th>
+                    <th>زمان عملی</th>
+                    <th>تعداد حقوق اضافه کاری</th>
+                    <th>تعداد حقوق غیبت</th>
+                    <th>تعداد حقوق عملی</th>
+                    <th>مسکن</th>
+                    <th>بهره</th>
+                    <th>پاداش</th>
+                    <th>پرداختی فرزندان</th>
+                    <th>پرداختی جدایی</th>
+                    <th>بیمه</th>
+                    <th>مالیات</th>
+                    <th>وام</th>
+                    <th>مجموع پرداختی</th>
+                    <th>شماره تراکنش</th>
+                    <th>جزئیات</th>
+                </tr>
+                </thead>
+                <tbody>
+<!--                <c:forEach var="payment" items="${sessionScope.paymentList}">-->
+                    <tr class="active-row">
+                        <td>${Payment.id}</td>
+                        <td>${Payment.person}</td>
+                        <td>${Payment.year}</td>
+                        <td>${Payment.from}</td>
+                        <td>${Payment.till}</td>
+                        <td>${Payment.basicSalary}</td>
+                        <td>${Payment.overTime}</td>
+                        <td>${Payment.absenceTime}</td>
+                        <td>${Payment.operationTime}</td>
+                        <td>${Payment.overTimePayCount}</td>
+                        <td>${Payment.absencePayCount}</td>
+                        <td>${Payment.operationPayCount}</td>
+                        <td>${Payment.housing}</td>
+                        <td>${Payment.benefits}</td>
+                        <td>${Payment.managementBonus}</td>
+                        <td>${Payment.childrenPay}</td>
+                        <td>${Payment.severancePay}</td>
+                        <td>${Payment.insurance}</td>
+                        <td>${Payment.tax}</td>
+                        <td>${Payment.debt}</td>
+                        <td>${Payment.totalPayment}</td>
+                        <td>${Payment.transactionNumber}</td>
+                        <td class="Details"><div class="input3"><input type="submit" value="جزئیات"></div></td>
+                    </tr>
+<!--                </c:forEach>-->
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script>
+
+    <!--    MenuToggle-->
+    let toggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    let main = document.querySelector('.main');
+
+
+    toggle.onclick = function (){
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+    }
+
+
+
+
+
+    <!--    add hovered class in selected list item-->
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink(){
+        list.forEach((item) =>
+            item.classList.remove('hovered'));
+        this.classList.add('hovered');
+    }
+    list.forEach((item) =>
+        item.addEventListener('mouseover', activeLink));
+</script>
+</body>
+</html>

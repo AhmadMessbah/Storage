@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" dir="rtl">
+    <!--                    Css Icon                 -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!--                    Css Sidbar                         -->
+    <meta http-equiv="X=UA-Compatible" content="ie=edge">
+    <meta name="viewport " content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/dashboardTwoPage.css">
+    <title>Sign Up</title>
+</head>
+<body>
+<div class="container" dir="rtl">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="earth-outline"></ion-icon></span>
+                    <span class="title">نام برند</span>
+                </a>
+            </li>
+            <li>
+                <a href="../HTMLDashboard/dashboard1.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">داشبورد</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">پروفایل</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                    <span class="title">گزارشات</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="title">اخبار</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="cog-outline"></ion-icon></span>
+                    <span class="title">ورود</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../HTMLForm/SignUp.html">
+                    <span class="icon"><ion-icon name="cog-outline"></ion-icon></span>
+                    <span class="title">ثبت نام</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../HTMLDashboard/centralRecruitment.html">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <span class="title">کارگزینی مرکزی</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">خروج</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!--    main   -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+
+
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="اینجا جست و جو کنید">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+
+            <!--            userImg-->
+
+            <div class="user">
+                <img src="../user.jpg">
+            </div>
+
+        </div>
+
+        <div class="container1" dir="rtl">
+            <header>ثبت نام</header>
+            <form action="/signUp.do" method="post">
+                <div class="form first">
+                    <div class="personal">
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>کد ملی</label>
+                                <input type="text" name="NationalCode" placeholder="کد ملی را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>نام خانوادگی</label>
+                                <input type="text" name="LastName" placeholder="نام خانوادگی را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>نام</label>
+                                <input type="text" name="FirstName" placeholder="نام را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>سن</label>
+                                <input type="number" name="Age" placeholder="سن را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>تولد</label>
+                                <input type="date" name="Birthday" placeholder="تاریخ تولد را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>شماره شسناسنامه</label>
+                                <input type="text" name="BirthCertificateCode" placeholder="شماره شناسنامه را وارد کنید" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" ID">
+                        <span class="title">اصالت</span>
+
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>شهر</label>
+                                <input type="text" name="City" placeholder="شهر را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>استان</label>
+                                <input type="text" name="State" placeholder="استان را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>نام پدر</label>
+                                <input type="text" name="FatherName" placeholder="نام پدر را وارد کنید" required>
+                            </div>
+                            <div class="two">
+                                <span class="title">جنسیت</span>
+                                <div class="gender-category">
+                                    <input type="radio" name="gender" id="male" >
+                                    <label for="male">خانم</label>
+                                    <input type="radio" name="gender" id="female" >
+                                    <label for="female">آقا</label>
+                                </div>
+                            </div>
+                            <div class="one">
+                                <span class="title">وضعیت تاهل</span>
+                                <div class="maritalStatus-category">
+                                    <input type="radio" name="maritalStatus" id="Single" >
+                                    <label for="Single">مطلقه</label>
+                                    <input type="radio" name="maritalStatus" id="Married" >
+                                    <label for="Married">متاهل</label>
+                                    <input type="radio" name="maritalStatus" id="Divorced" >
+                                    <label for="Divorced">مجرد</label>
+                                </div>
+                            </div>
+                            <div class="input-field">
+                                <label>کد پستی</label>
+                                <input type="text" name="PostCode" placeholder="کد پستی را وارد کنید" required>
+                            </div>
+                        </div>
+                        <button class="nextBTN">
+                            <i class="uil-navigator"></i>
+                            <span class="btnText">بعدی</span>
+                        </button>
+                    </div>
+                </div>
+                <!--    ////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class="form second">
+                    <div class=" address">
+
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>آدرس</label>
+                                <input type="text" name="Address" placeholder="آدرس محل سکونت ر ا وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>شماره تماس محل سکونت</label>
+                                <input type="number" name="LandLineNo" placeholder="شماره تماس را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>شماره موبایل</label>
+                                <input type="text" name="PhoneNo" placeholder="شماره موبایل را وارد کنید" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label>پست الکترونیک</label>
+                                <input type="email" name="Email" placeholder="آدرس پست الکترونیک را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>تعداد فرزندان</label>
+                                <input type="number" name="ChildrenCount" placeholder="تعداد فرزندان را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>تصویر کارت ملی</label>
+                                <input type="file" name="NationalCardPicture" placeholder="تصویر را بارگذاری کنید" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" Family">
+
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>نام کاربری</label>
+                                <input type="text" name="Username" placeholder="نام کاربری را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>رمز عبور</label>
+                                <input type="password" name="Password" placeholder="رمز عبور را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>عکس پرسنلی</label>
+                                <input type="file" name="PersonnelPicture" placeholder="عکس پرسنلی را بارگذاری کنید" required>
+                            </div>
+
+                            <div class="input-field">
+                                <label>شخص</label>
+                                <input type="text" name="Person" placeholder="نام را وارد کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>سطح دسترسی</label>
+                                <input type="number" name="Access Level" placeholder="از 1 تا 4 انتخاب کنید" required>
+                            </div>
+                            <div class="input-field">
+                                <label>نام وظیفه</label>
+                                <input type="text" name="Role Name" placeholder="نام وظیفه را وارد کنید" required>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <button class="nextBTN">
+                                <i class="uil-navigator"></i>
+                                <span class="btnText">ثبت</span>
+                            </button>
+                            <div class="backBTN">
+                                <span class="btnText">بازگشت</span>
+                                <i class="uil-navigator"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="../JAVASCRIPT/nextBTN.js"></script>
+    </div>
+</div>
+</div>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script>
+
+    <!--    MenuToggle-->
+    let toggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    let main = document.querySelector('.main');
+
+
+    toggle.onclick = function (){
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+    }
+
+
+
+
+
+    <!--    add hovered class in selected list item-->
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink(){
+        list.forEach((item) =>
+            item.classList.remove('hovered'));
+        this.classList.add('hovered');
+    }
+    list.forEach((item) =>
+        item.addEventListener('mouseover', activeLink));
+</script>
+</body>
+</html>
